@@ -3,10 +3,31 @@ import image from '../../assets/images/image1.jpg'
 import google from '../../assets/logos/google.png'
 import twitter from '../../assets/logos/twitter.png'
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
-import { useState } from 'react';
+import { useContext, useState } from 'react';
+import { AuthContext } from '../../providers/AuthProvider';
+import { toast } from 'react-hot-toast';
 
 const Login = () => {
     const [show, setShow] = useState(false)
+    const {signInUser} = useContext(AuthContext)
+
+    const handleLogin = (event) => {
+        event.preventDefault()
+
+        const form = event.target;
+        const email = form.email.value;
+        const password = form.password.value;
+        console.log(email, password)
+        
+        signInUser(email, password)
+        .then(result => {
+            const user = result.user;
+            console.log(user)
+            form.reset()
+            toast.success("Login successful!👍")
+        })
+        .catch(error => console.log(error))
+    }
 
     return (
         <div className='min-h-screen max-h-full max-w-7xl mx-auto flex items-center justify-center'>
@@ -14,7 +35,7 @@ const Login = () => {
                 <img src={image} alt="" className='w-2/5' />
                 <div className='w-3/5 p-16'>
                     <h3 className='font-bold text-2xl text-[#333E48] mb-5'>Sign into your account</h3>
-                    <form>
+                    <form onSubmit={handleLogin}>
                         <div className="mb-3">
                             <label htmlFor="email" className="block mb-2 text-sm font-medium text-gray-900">Your Email</label>
                             <input type="email" id="email" className="bg-gray-50 border border-gray-300 text-gray-900 w-full p-2.5 text-sm rounded-lg" placeholder="Enter email address" required />
