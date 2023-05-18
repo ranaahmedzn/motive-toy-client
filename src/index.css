@@ -21,3 +21,6 @@
 .social-icon:hover{
     @apply text-[#0787EA]
 }
+.social-login-btn{
+    @apply flex justify-center gap-2 items-center w-full border border-gray-500 hover:bg-gradient-to-r from-blue-50 to-cyan-50 rounded-full p-2 font-medium
+}

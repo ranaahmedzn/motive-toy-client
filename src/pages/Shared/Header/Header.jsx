@@ -1,7 +1,8 @@
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { HiBars3CenterLeft } from "react-icons/hi2";
 import { IoClose } from "react-icons/io5";
 import { useState } from "react";
+import logo from '../../../assets/logos/logo.png'
 
 const Header = () => {
     const [open, setOpen] = useState(false)
@@ -19,7 +20,10 @@ const Header = () => {
                         <HiBars3CenterLeft onClick={() => setOpen(!open)} className="text-3xl" />
                     </label>
                 </div>
-                <div className="flex-1 lg:flex-none ml-4 lg:ml-0 text-3xl font-bold text-[#333E48]">Motive Toy</div>
+                <div className="flex-1 lg:flex-none flex items-center gap-3 ml-4 lg:ml-0 text-3xl font-bold text-[#333E48]">
+                    <img src={logo} alt="" />
+                    Motive Toy
+                </div>
                 <div className="flex-none hidden lg:block">
                     <ul className="flex items-center">
                         <li >
@@ -55,7 +59,7 @@ const Header = () => {
                     </ul>
                 </div>
                 <div>
-                    <button className="primary-btn">Login</button>
+                    <Link to='/login'><button className="primary-btn">Login</button></Link>
                 </div>
             </div>
 
