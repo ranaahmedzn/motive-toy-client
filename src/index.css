@@ -15,3 +15,9 @@
 .default:hover{
     @apply rounded-full bg-[#333E48] text-base text-white
 }
+.social-icon{
+    @apply text-gray-700 text-2xl
+}
+.social-icon:hover{
+    @apply text-[#0787EA]
+}

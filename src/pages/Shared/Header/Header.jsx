@@ -1,12 +1,13 @@
 import { NavLink } from "react-router-dom";
-import { HiBars3CenterLeft, HiXMark } from "react-icons/hi2";
+import { HiBars3CenterLeft } from "react-icons/hi2";
+import { IoClose } from "react-icons/io5";
 import { useState } from "react";
 
 const Header = () => {
     const [open, setOpen] = useState(false)
 
     return (
-        <div className={`max-w-7xl mx-auto relative ${open ? "h-screen" : ''}`}>
+        <div className={`max-w-7xl lg:px-10 mx-auto relative ${open ? "h-screen" : ''}`}>
             {/* overlay */}
             {
                 open ? <div className="absolute w-full h-full bg-gray-700 opacity-40"> </div> : ''
@@ -92,7 +93,7 @@ const Header = () => {
                         </NavLink>
                     </li>
                     {
-                        open && <HiXMark onClick={() => setOpen(!open)} className="text-3xl absolute -top-6 right-2 cursor-pointer" />
+                        open && <IoClose onClick={() => setOpen(!open)} className="text-3xl absolute -top-6 right-2 cursor-pointer" />
                     }
                 </ul>
             </div>
