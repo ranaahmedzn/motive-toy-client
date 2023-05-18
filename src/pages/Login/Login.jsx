@@ -9,7 +9,7 @@ import { toast } from 'react-hot-toast';
 
 const Login = () => {
     const [show, setShow] = useState(false)
-    const {signInUser} = useContext(AuthContext)
+    const {signInUser, googleLogin, twitterLogin} = useContext(AuthContext)
 
     const handleLogin = (event) => {
         event.preventDefault()
@@ -17,7 +17,7 @@ const Login = () => {
         const form = event.target;
         const email = form.email.value;
         const password = form.password.value;
-        console.log(email, password)
+        // console.log(email, password)
         
         signInUser(email, password)
         .then(result => {
@@ -27,6 +27,26 @@ const Login = () => {
             toast.success("Login successful!👍")
         })
         .catch(error => console.log(error))
+    }
+
+    const handleGoogleLogin = () => {
+        googleLogin()
+        .then(result => {
+            const user = result.user;
+            console.log(user)
+            toast.success("Successfully login with Google!👍")
+        })
+        .catch(err => console.log(err))
+    }
+
+    const handleTwitterLogin = () => {
+        twitterLogin()
+        .then(result => {
+            const user = result.user;
+            console.log(user)
+            toast.success("Successfully login with Twitter!👍")
+        })
+        .catch(err => console.log(err))
     }
 
     return (
@@ -61,11 +81,11 @@ const Login = () => {
                     <p className='text-center font-medium mt-6 text-sm'>Don&apos;t have an account? <Link to='/signup' className='text-rose-500 hover:underline '>Sign Up</Link></p>
                     <div className="divider w-1/2 mx-auto">OR</div>
                     <div className='flex gap-3 justify-between'>
-                        <button type="button" className="social-login-btn">
+                        <button onClick={handleGoogleLogin} type="button" className="social-login-btn">
                             <img src={google} alt="" className='w-[25px]' />
                             Sign in with Google
                         </button>
-                        <button type="button" className="social-login-btn">
+                        <button onClick={handleTwitterLogin} type="button" className="social-login-btn">
                             <img src={twitter} alt="" className='w-[25px]' />
                             Sign in with Twitter
                         </button>

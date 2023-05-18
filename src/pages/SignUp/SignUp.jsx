@@ -16,7 +16,11 @@ const SignUp = () => {
         event.preventDefault()
 
         const form = event.target;
-        
+        // const firstName = form.firstName.value;
+        // const lastName = form.lastName.value;
+        // const photoUrl = form.photoUrl.value;
+        // console.log(firstName, lastName, email, password, photoUrl)
+
         createUser(email, password)
         .then(result => {
             const user = result.user;
