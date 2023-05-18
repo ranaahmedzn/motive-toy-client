@@ -1,14 +1,40 @@
 import { Link } from 'react-router-dom';
 import image from '../../assets/images/image1.jpg'
+import { FaEye, FaEyeSlash } from 'react-icons/fa';
+import { useContext, useState } from 'react';
+import { AuthContext } from '../../providers/AuthProvider';
+import { toast } from 'react-hot-toast';
 
 const SignUp = () => {
+    const [show, setShow] = useState(false)
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
+
+    const {createUser} = useContext(AuthContext);
+
+    const handleSignUp = (event) => {
+        event.preventDefault()
+
+        const form = event.target;
+        
+        createUser(email, password)
+        .then(result => {
+            const user = result.user;
+            console.log(user)
+            form.reset()
+            toast.success("Sign Up successful!👍")
+        })
+        .catch(error => console.log(error))
+    
+    }
+
     return (
-        <div className='h-screen max-w-7xl mx-auto my-10 flex items-center justify-center'>
+        <div className='min-h-screen max-h-full max-w-7xl mx-auto my-10 flex items-center justify-center'>
             <div className="w-3/4 mx-auto flex rounded-lg overflow-hidden border">
                 <img src={image} alt="" className='w-2/5' />
                 <div className='w-3/5 p-16'>
                     <h3 className='font-bold text-2xl text-[#333E48] mb-5'>Create your account</h3>
-                    <form>
+                    <form onSubmit={handleSignUp}>
                         <div className='flex gap-3 mb-6'>
                             <div className='w-1/2'>
                                 <label htmlFor="firstName" className="block mb-2 text-sm font-medium text-gray-900">First name</label>
@@ -21,16 +47,23 @@ const SignUp = () => {
                         </div>
                         <div className="mb-3">
                             <label htmlFor="email" className="block mb-2 text-sm font-medium text-gray-900">Your Email</label>
-                            <input type="email" id="email" className="bg-gray-50 border border-gray-300 text-gray-900 w-full p-2.5 text-sm rounded-lg" placeholder="Enter email address" required />
+                            <input onChange={(e) => setEmail(e.target.value)} type="email" id="email" className="bg-gray-50 border border-gray-300 text-gray-900 w-full p-2.5 text-sm rounded-lg" placeholder="Enter email address" required />
                         </div>
 
-                        <div className="mb-3">
+                        <div className="mb-3 relative">
                             <label htmlFor="password" className="block mb-2 text-sm font-medium text-gray-900">Your Password</label>
-                            <input type="password" id="password" className="bg-gray-50 border border-gray-300 text-gray-900 w-full p-2.5 text-sm rounded-lg" placeholder="Enter your password" required />
+                            <input onChange={(e) => setPassword(e.target.value)} type={show ? 'text' : 'password'} id="password" className="bg-gray-50 border border-gray-300 text-gray-900 w-full p-2.5 text-sm rounded-lg" placeholder="Enter your password" required />
+
+                            <span onClick={() => setShow(!show)} className='absolute top-10 right-3 cursor-pointer'>
+                                {
+                                    show ? <FaEyeSlash />
+                                    : <FaEye />
+                                }
+                            </span>
                         </div>
                         <div className="mb-3">
-                            <label htmlFor="photo" className="block mb-2 text-sm font-medium text-gray-900">Photo URL</label>
-                            <input type="url" id="photo" className="bg-gray-50 border border-gray-300 text-gray-900 w-full p-2.5 text-sm rounded-lg" placeholder="Enter photo url" required />
+                            <label htmlFor="photoUrl" className="block mb-2 text-sm font-medium text-gray-900">Photo URL</label>
+                            <input type="url" id="photoUrl" className="bg-gray-50 border border-gray-300 text-gray-900 w-full p-2.5 text-sm rounded-lg" placeholder="Enter photo url" required />
                         </div>
 
                         <div className="flex items-start mb-6">
