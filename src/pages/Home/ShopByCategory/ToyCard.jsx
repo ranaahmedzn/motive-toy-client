@@ -1,9 +1,21 @@
 import Rating from "react-rating";
 import { Link } from "react-router-dom";
 import { FaStar, FaRegStar } from "react-icons/fa";
+import { useContext } from "react";
+import { AuthContext } from "../../../providers/AuthProvider";
+import { toast } from "react-hot-toast";
 
 const ToyCard = ({ toy }) => {
+    const {user} = useContext(AuthContext)
     const { _id, toy_name, picture, price, rating } = toy || {};
+
+    const handleNotify = () => {
+        if(!user){
+            return toast('You have to log in first to view details!', {
+                icon: 'ℹ️',
+            })
+        }
+    }
 
     return (
         <div className="card w-full shadow-lg bg-gradient-to-r from-blue-50 to-cyan-50 border">
@@ -26,7 +38,7 @@ const ToyCard = ({ toy }) => {
                     </div>
                 </div>
                 <div>
-                    <Link to={`/toy/${_id}`}><button className="rounded-btn">View Details</button></Link>
+                    <Link onClick={handleNotify} to={`/toy/${_id}`}><button className="rounded-btn">View Details</button></Link>
                 </div>
             </div>
         </div>
