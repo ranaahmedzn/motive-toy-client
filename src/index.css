@@ -6,6 +6,9 @@
 .primary-btn {
     @apply py-2.5 px-5 rounded-md bg-[#0787EA] text-base font-bold text-white
 }
+.secondary-btn{
+    @apply py-2.5 px-5 rounded-md bg-[#333E48] text-base font-bold text-white
+}
 .active{
     @apply py-2 px-4 rounded-full bg-[#333E48] text-base font-medium text-white
 }

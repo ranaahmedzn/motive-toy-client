@@ -25,7 +25,7 @@ const Header = () => {
                 open ? <div className="lg:hidden absolute w-full h-screen bg-gray-700 opacity-40"> </div> : ''
             }
             {/* navbar */}
-            <div className="w-full flex items-center h-[90px] lg:my-5 px-4 lg:px-10 lg:justify-between bg-white border border-[#0787EA] rounded-lg">
+            <div className="w-full flex items-center h-[90px] px-4 lg:px-10 lg:justify-between bg-white border border-[#0787EA] rounded-lg">
                 <div className="flex-none lg:hidden">
                     <label htmlFor="my-drawer-3" className="w-full">
                         <HiBars3CenterLeft onClick={() => setOpen(!open)} className="text-3xl" />

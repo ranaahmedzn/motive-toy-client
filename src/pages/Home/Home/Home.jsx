@@ -1,8 +1,9 @@
+import Banner from "../Banner/Banner";
 
 const Home = () => {
     return (
         <div>
-            <div className="w-full h-[calc(100vh-130px)]"> Hello</div>
+            <Banner></Banner>
         </div>
     );
 };

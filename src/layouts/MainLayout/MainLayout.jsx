@@ -5,7 +5,9 @@ import Header from "../../pages/Shared/Header/Header";
 const MainLayout = () => {
     return (
         <div>
-            <Header></Header>
+            <div className="w-full h-full lg:py-8 bg-[#0787EA]">
+                <Header></Header>
+            </div>
             <Outlet></Outlet>
             <Footer></Footer>
         </div>
