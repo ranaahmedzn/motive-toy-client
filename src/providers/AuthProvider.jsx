@@ -1,5 +1,5 @@
-import { createContext} from "react";
-import { GoogleAuthProvider, TwitterAuthProvider, createUserWithEmailAndPassword, getAuth, signInWithEmailAndPassword, signInWithPopup } from "firebase/auth";
+import { createContext, useEffect, useState} from "react";
+import { GoogleAuthProvider, TwitterAuthProvider, createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut } from "firebase/auth";
 import app from "../firebase/firebase.config";
 
 export const AuthContext = createContext(null)
@@ -8,7 +8,16 @@ const googleProvider = new GoogleAuthProvider()
 const twitterProvider = new TwitterAuthProvider()
 
 const AuthProvider = ({children}) => {
-    const user = {email: 'ranasheikh@gmail.com'}
+    const [user, setUser] = useState(null)
+
+    useEffect(() => {
+        const unsubscribe = onAuthStateChanged(auth, currentUser => {
+            // console.log(currentUser);
+            setUser(currentUser)
+        })
+        
+        return () => unsubscribe();
+    }, [])
 
     const createUser = (email, password) => {
         return createUserWithEmailAndPassword(auth, email, password);
@@ -16,6 +25,10 @@ const AuthProvider = ({children}) => {
 
     const signInUser = (email, password) => {
         return signInWithEmailAndPassword(auth, email, password)
+    }
+
+    const signOutUser = () => {
+        return signOut(auth);
     }
 
     const googleLogin = () => {
@@ -30,6 +43,7 @@ const AuthProvider = ({children}) => {
         user,
         createUser,
         signInUser,
+        signOutUser,
         googleLogin,
         twitterLogin
     }
