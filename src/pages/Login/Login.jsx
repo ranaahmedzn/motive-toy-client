@@ -8,8 +8,9 @@ import { AuthContext } from '../../providers/AuthProvider';
 import { toast } from 'react-hot-toast';
 
 const Login = () => {
+    const [email, setEmail] = useState('')
     const [show, setShow] = useState(false)
-    const {signInUser, googleLogin, twitterLogin} = useContext(AuthContext)
+    const {signInUser, googleLogin, twitterLogin, resetPassword} = useContext(AuthContext)
 
     const handleLogin = (event) => {
         event.preventDefault()
@@ -49,6 +50,17 @@ const Login = () => {
         .catch(err => toast.error(`${err.message}🔥`))
     }
 
+    const handleResetPassword = () => {
+        if(!email){
+            return toast.error('You have to provide your email first!🔥')
+        }
+        resetPassword(email)
+        .then(() => toast('Please check your email!', {
+            icon: 'ℹ️',
+        }))
+        .catch(err => toast.error(`${err}🔥`))
+    }
+
     return (
         <div className='min-h-screen max-h-full max-w-7xl mx-auto flex items-center justify-center'>
             <div className="w-3/4 mx-auto flex flex-row-reverse rounded-lg overflow-hidden border">
@@ -58,7 +70,7 @@ const Login = () => {
                     <form onSubmit={handleLogin}>
                         <div className="mb-5">
                             <label htmlFor="email" className="block mb-2 text-sm font-medium text-gray-900">Your Email</label>
-                            <input type="email" id="email" className="bg-gray-50 border border-gray-300 text-gray-900 w-full p-2.5 text-sm rounded-lg" placeholder="Enter email address" required />
+                            <input onChange={(e) => setEmail(e.target.value)} type="email" id="email" className="bg-gray-50 border border-gray-300 text-gray-900 w-full p-2.5 text-sm rounded-lg" placeholder="Enter email address" required />
                         </div>
 
                         <div className="mb-2 relative">
@@ -74,7 +86,7 @@ const Login = () => {
                         </div>
 
                         <div className="flex items-start mb-6">
-                            <p className='text-sm font-medium text-rose-500 cursor-pointer hover:underline'>Forgotten password?</p>
+                            <p onClick={handleResetPassword} className='text-sm font-medium text-rose-500 cursor-pointer hover:underline'>Forgotten password?</p>
                         </div>
                         <button type='submit' className='primary-btn w-full'>Login</button>
                     </form>

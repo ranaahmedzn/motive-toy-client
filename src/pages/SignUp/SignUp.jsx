@@ -12,15 +12,16 @@ const SignUp = () => {
     const [password, setPassword] = useState('')
     const [passwordErr, setPasswordErr] = useState('')
 
-    const { createUser } = useContext(AuthContext);
+    const { createUser, updateUserProfile } = useContext(AuthContext);
 
     const handleSignUp = (event) => {
         event.preventDefault()
 
         const form = event.target;
-        // const firstName = form.firstName.value;
-        // const lastName = form.lastName.value;
-        // const photoUrl = form.photoUrl.value;
+        const firstName = form.firstName.value;
+        const lastName = form.lastName.value;
+        const fullName = `${firstName}${lastName}`
+        const photoUrl = form.photoUrl.value;
         // console.log(firstName, lastName, email, password, photoUrl)
 
         if (passwordErr) {
@@ -33,6 +34,9 @@ const SignUp = () => {
                 console.log(user)
                 form.reset()
                 toast.success("Sign Up successful!👍")
+
+                // update user profile info
+                updateUserProfile(fullName, photoUrl)
             })
             .catch(error => toast.error(`${error.message}🔥`))
 

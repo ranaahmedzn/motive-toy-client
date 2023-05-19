@@ -41,6 +41,7 @@ const Header = () => {
                     </ul>
                 </div>
                 <div>
+                    {/* todo */}
                     {
                         user ? <div className="flex gap-2.5 items-center">
                             <img src={user?.photoURL} alt="" className="rounded-full w-10 border border-[#333E48]" />

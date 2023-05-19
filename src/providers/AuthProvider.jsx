@@ -1,5 +1,5 @@
 import { createContext, useEffect, useState} from "react";
-import { GoogleAuthProvider, TwitterAuthProvider, createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut } from "firebase/auth";
+import { GoogleAuthProvider, TwitterAuthProvider, createUserWithEmailAndPassword, getAuth, onAuthStateChanged, sendPasswordResetEmail, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
 import app from "../firebase/firebase.config";
 
 export const AuthContext = createContext(null)
@@ -9,6 +9,7 @@ const twitterProvider = new TwitterAuthProvider()
 
 const AuthProvider = ({children}) => {
     const [user, setUser] = useState(null)
+    // console.log(user)
 
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, currentUser => {
@@ -39,13 +40,26 @@ const AuthProvider = ({children}) => {
         return signInWithPopup(auth, twitterProvider);
     }
 
+    const updateUserProfile = (name, photoUrl) => {
+        return updateProfile(auth.currentUser, {
+            displayName: name, photoURL: photoUrl
+        })
+    }
+
+    const resetPassword = (email) => {
+        return sendPasswordResetEmail(auth, email);
+    }
+
+
     const authInfo = {
         user,
         createUser,
         signInUser,
         signOutUser,
         googleLogin,
-        twitterLogin
+        twitterLogin,
+        updateUserProfile,
+        resetPassword
     }
 
     return (
