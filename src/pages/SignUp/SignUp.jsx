@@ -4,13 +4,15 @@ import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import { useContext, useState } from 'react';
 import { AuthContext } from '../../providers/AuthProvider';
 import { toast } from 'react-hot-toast';
+import { RiAlertFill } from "react-icons/ri";
 
 const SignUp = () => {
     const [show, setShow] = useState(false)
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
+    const [passwordErr, setPasswordErr] = useState('')
 
-    const {createUser} = useContext(AuthContext);
+    const { createUser } = useContext(AuthContext);
 
     const handleSignUp = (event) => {
         event.preventDefault()
@@ -21,25 +23,49 @@ const SignUp = () => {
         // const photoUrl = form.photoUrl.value;
         // console.log(firstName, lastName, email, password, photoUrl)
 
+        if (passwordErr) {
+            return form.password.focus()
+        }
+
         createUser(email, password)
-        .then(result => {
-            const user = result.user;
-            console.log(user)
-            form.reset()
-            toast.success("Sign Up successful!👍")
-        })
-        .catch(error => console.log(error))
-    
+            .then(result => {
+                const user = result.user;
+                console.log(user)
+                form.reset()
+                toast.success("Sign Up successful!👍")
+            })
+            .catch(error => toast.error(`${error.message}🔥`))
+
+    }
+
+    // set password field value to the state
+    const handlePassword = (e) => {
+        const passwordValue = e.target.value;
+        setPassword(passwordValue)
+
+        // handling password validation
+        if (!/(?=.*[0-9])/.test(passwordValue)) {
+            setPasswordErr('Password should contain at least one digit.')
+        }
+        else if (!/(?=.*[!@#$%^&*])/.test(passwordValue)) {
+            setPasswordErr('Please include at least one special character')
+        }
+        else if (passwordValue.length < 6) {
+            setPasswordErr('Password must be 6 character or longer.')
+        }
+        else {
+            setPasswordErr('')
+        }
     }
 
     return (
         <div className='min-h-screen max-h-full max-w-7xl mx-auto my-10 flex items-center justify-center'>
-            <div className="w-3/4 mx-auto flex rounded-lg overflow-hidden border">
+            <div className="w-3/4 h-full box-border mx-auto flex rounded-lg overflow-hidden border">
                 <img src={image} alt="" className='w-2/5' />
                 <div className='w-3/5 p-16'>
                     <h3 className='font-bold text-2xl text-[#333E48] mb-5'>Create your account</h3>
                     <form onSubmit={handleSignUp}>
-                        <div className='flex gap-3 mb-6'>
+                        <div className='flex gap-3 mb-5'>
                             <div className='w-1/2'>
                                 <label htmlFor="firstName" className="block mb-2 text-sm font-medium text-gray-900">First name</label>
                                 <input type="text" id="firstName" className="bg-gray-50 border border-gray-300 text-gray-900 w-full p-2.5 text-sm rounded-lg" placeholder="Enter first name" required />
@@ -49,19 +75,27 @@ const SignUp = () => {
                                 <input type="text" id="lastName" className="bg-gray-50 border border-gray-300 text-gray-900 w-full p-2.5 text-sm rounded-lg" placeholder="Enter last name" required />
                             </div>
                         </div>
-                        <div className="mb-3">
+                        <div className="mb-5">
                             <label htmlFor="email" className="block mb-2 text-sm font-medium text-gray-900">Your Email</label>
                             <input onChange={(e) => setEmail(e.target.value)} type="email" id="email" className="bg-gray-50 border border-gray-300 text-gray-900 w-full p-2.5 text-sm rounded-lg" placeholder="Enter email address" required />
                         </div>
 
-                        <div className="mb-3 relative">
+                        <div className="mb-5 relative">
                             <label htmlFor="password" className="block mb-2 text-sm font-medium text-gray-900">Your Password</label>
-                            <input onChange={(e) => setPassword(e.target.value)} type={show ? 'text' : 'password'} id="password" className="bg-gray-50 border border-gray-300 text-gray-900 w-full p-2.5 text-sm rounded-lg" placeholder="Enter your password" required />
+                            <input onChange={handlePassword} type={show ? 'text' : 'password'} id="password" className="bg-gray-50 border border-gray-300 text-gray-900 w-full p-2.5 text-sm rounded-lg" placeholder="Enter your password" required />
+
+                            {
+                            passwordErr ? <p className='flex items-center gap-1 absolute -top-2 right-0 text-sm mt-2 font-medium text-rose-500'>
+                                <RiAlertFill />
+                                {passwordErr}
+                            </p> : ''
+
+                        }
 
                             <span onClick={() => setShow(!show)} className='absolute top-10 right-3 cursor-pointer'>
                                 {
                                     show ? <FaEyeSlash />
-                                    : <FaEye />
+                                        : <FaEye />
                                 }
                             </span>
                         </div>

@@ -26,7 +26,7 @@ const Login = () => {
             form.reset()
             toast.success("Login successful!👍")
         })
-        .catch(error => console.log(error))
+        .catch(error => toast.error(`${error.message}🔥`))
     }
 
     const handleGoogleLogin = () => {
@@ -36,7 +36,7 @@ const Login = () => {
             console.log(user)
             toast.success("Successfully login with Google!👍")
         })
-        .catch(err => console.log(err))
+        .catch(err => toast.error(`${err.message}🔥`))
     }
 
     const handleTwitterLogin = () => {
@@ -46,7 +46,7 @@ const Login = () => {
             console.log(user)
             toast.success("Successfully login with Twitter!👍")
         })
-        .catch(err => console.log(err))
+        .catch(err => toast.error(`${err.message}🔥`))
     }
 
     return (
@@ -56,7 +56,7 @@ const Login = () => {
                 <div className='w-3/5 p-16'>
                     <h3 className='font-bold text-2xl text-[#333E48] mb-5'>Sign into your account</h3>
                     <form onSubmit={handleLogin}>
-                        <div className="mb-3">
+                        <div className="mb-5">
                             <label htmlFor="email" className="block mb-2 text-sm font-medium text-gray-900">Your Email</label>
                             <input type="email" id="email" className="bg-gray-50 border border-gray-300 text-gray-900 w-full p-2.5 text-sm rounded-lg" placeholder="Enter email address" required />
                         </div>

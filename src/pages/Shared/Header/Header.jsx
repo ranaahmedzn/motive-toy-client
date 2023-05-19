@@ -14,7 +14,7 @@ const Header = () => {
 
     const handleSignOut = () => {
         signOutUser()
-        .then(() => toast.success('Sign out successful!'))
+        .then(() => toast.success('Sign out successful!👍'))
         .then(err => console.log(err))
     }
 
