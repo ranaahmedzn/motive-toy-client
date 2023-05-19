@@ -27,3 +27,12 @@
 .social-login-btn{
     @apply flex justify-center gap-2 items-center w-full border border-gray-500 hover:bg-gradient-to-r from-blue-50 to-cyan-50 rounded-full p-2 font-medium
 }
+.default-tab{
+    @apply py-3 px-6 text-lg font-bold text-[#0787EA] text-center transition-all duration-300 cursor-pointer 
+}
+.active-tab{
+    @apply bg-[#0787EA] py-3 px-6 text-lg font-bold text-white text-center transition-all duration-300 cursor-pointer
+}
+.active-tab:hover, .default-tab:hover{
+    @apply bg-[#0787EA] text-white
+}
