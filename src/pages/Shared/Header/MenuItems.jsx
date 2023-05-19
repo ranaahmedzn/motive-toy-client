@@ -19,7 +19,7 @@ const MenuItems = () => {
             </li>
             <li >
                 <NavLink
-                    to='/all-toys'
+                    to='/toys/all-toys'
                     className={({ isActive }) =>
                         isActive ? "active" : "default"
                     }
@@ -30,7 +30,7 @@ const MenuItems = () => {
             {
                 user && <li >
                     <NavLink
-                        to='/my-toys'
+                        to='/toys/my-toys'
                         className={({ isActive }) =>
                             isActive ? "active" : "default"
                         }
@@ -42,7 +42,7 @@ const MenuItems = () => {
             {
                 user && <li >
                     <NavLink
-                        to='/add-toy'
+                        to='/toys/add-toy'
                         className={({ isActive }) =>
                             isActive ? "active" : "default"
                         }
