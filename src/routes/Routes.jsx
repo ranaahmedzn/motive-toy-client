@@ -7,6 +7,7 @@ import SecondaryLayout from "../layouts/SecondaryLayout/SecondaryLayout";
 import AllToys from "../pages/AllToys/AllToys";
 import AddAToy from "../pages/AddAToy/AddAToy";
 import ErrorPage from "../pages/ErrorPage/ErrorPage";
+import MyToys from "../pages/MyToys/MyToys";
 
 const router = createBrowserRouter([
     {
@@ -39,6 +40,10 @@ const router = createBrowserRouter([
             {
                 path: 'add-toy',
                 element: <AddAToy />
+            },
+            {
+                path: 'my-toys',
+                element: <MyToys />
             }
         ]
     },
