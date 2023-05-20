@@ -13,10 +13,10 @@
     @apply py-2.5 px-5 w-full rounded-full bg-[#0787EA] text-base font-bold text-white
 }
 .active{
-    @apply py-2 px-4 rounded-full bg-[#333E48] text-base font-medium text-white
+    @apply py-2 px-3 rounded-full bg-[#333E48] text-base font-medium text-white
 }
 .default{
-    @apply py-2 px-4 rounded-full font-medium transition-all duration-300
+    @apply py-2 px-3 rounded-full font-medium transition-all duration-300
 }
 .default:hover{
     @apply rounded-full bg-[#333E48] text-base text-white

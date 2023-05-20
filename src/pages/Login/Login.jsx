@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import image from '../../assets/images/image1.jpg'
 import google from '../../assets/logos/google.png'
 import twitter from '../../assets/logos/twitter.png'
@@ -11,6 +11,12 @@ const Login = () => {
     const [email, setEmail] = useState('')
     const [show, setShow] = useState(false)
     const { signInUser, googleLogin, twitterLogin, resetPassword } = useContext(AuthContext)
+
+    const location = useLocation()
+    const navigate = useNavigate()
+    console.log(location)
+
+    const from = location.state?.from?.pathname || '/';
 
     const handleLogin = (event) => {
         event.preventDefault()
@@ -26,6 +32,7 @@ const Login = () => {
                 console.log(user)
                 form.reset()
                 toast.success("Login successful!👍")
+                navigate(from, {replace: true})
             })
             .catch(error => toast.error(`${error.message}🔥`))
     }
@@ -36,6 +43,7 @@ const Login = () => {
                 const user = result.user;
                 console.log(user)
                 toast.success("Successfully login with Google!👍")
+                navigate(from, {replace: true})
             })
             .catch(err => toast.error(`${err.message}🔥`))
     }
@@ -46,6 +54,7 @@ const Login = () => {
                 const user = result.user;
                 console.log(user)
                 toast.success("Successfully login with Twitter!👍")
+                navigate(from, {replace: true})
             })
             .catch(err => toast.error(`${err.message}🔥`))
     }

@@ -14,8 +14,8 @@ const Header = () => {
 
     const handleSignOut = () => {
         signOutUser()
-        .then(() => toast.success('Sign out successful!👍'))
-        .then(err => console.log(err))
+            .then(() => toast.success('Sign out successful!👍'))
+            .then(err => console.log(err))
     }
 
     return (
@@ -33,21 +33,24 @@ const Header = () => {
                 </div>
                 <div className="flex-1 lg:flex-none flex items-center gap-3 ml-4 lg:ml-0">
                     <img src={logo} className="w-[40px] md:w-[60px]" alt="" />
-                    <h3 className="text-2xl lg:text-3xl font-bold text-[#333E48]">Motive Toy</h3>
+                    <Link to='/'><h3 className="text-2xl lg:text-3xl font-bold text-[#333E48]">Motive Toy</h3></Link>
                 </div>
                 <div className="flex-none hidden lg:block">
-                    <ul className="flex items-center">
+                    <ul className="flex gap-1 items-center">
                         <MenuItems></MenuItems>
                     </ul>
                 </div>
                 <div>
                     {/* todo */}
                     {
-                        user ? <div className="flex gap-2.5 items-center">
-                            <img src={user?.photoURL} alt="" className="rounded-full w-10 border border-[#333E48]" />
+                        user ?
+                        <div className="flex gap-2.5 items-center">
+                            <div className="tooltip tooltip-bottom" data-tip={user?.displayName}>
+                                <img src={user?.photoURL} alt="" className="rounded-full w-10 border border-[#333E48] hover:cursor-text" />
+                            </div>
                             <button onClick={handleSignOut} className="primary-btn hidden md:block">Sign Out</button>
                         </div>
-                            : <Link to='/login'><button className="primary-btn">Login</button></Link>
+                        : <Link to='/login'><button className="primary-btn">Login</button></Link>
                     }
                 </div>
             </div>

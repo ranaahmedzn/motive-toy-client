@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { toast } from "react-hot-toast";
+import Swal from "sweetalert2";
 
 const AddAToy = () => {
     const [selectedValue, setSelectedValue] = useState('')
@@ -32,7 +32,11 @@ const AddAToy = () => {
         .then(data => {
             console.log(data)
             if(data.insertedId){
-                toast.success('Successfully added a new toy!')
+                Swal.fire(
+                    'Added',
+                    'Successfully added a new toy!',
+                    'success'
+                )
             }
         })
     }
