@@ -5,8 +5,8 @@ import Swal from "sweetalert2";
 
 const MyToys = () => {
     const [toys, setToys] = useState([])
+    const [control, setControl] = useState(false)
     const { user } = useContext(AuthContext)
-    // console.log(user?.email)
 
     const url = `http://localhost:5000/my-toys?email=${user?.email}`
 
@@ -14,7 +14,31 @@ const MyToys = () => {
         fetch(url)
             .then(res => res.json())
             .then(data => setToys(data))
-    }, [url])
+    }, [url, control])
+
+    const handleUpdateToy = (id, updatedToy) => {
+        fetch(`http://localhost:5000/toys/update-toy/${id}`, {
+            method: 'PATCH',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(updatedToy)
+        })
+        .then(res => res.json())
+        .then(data => {
+            console.log(data)
+            if(data.modifiedCount > 0){
+                Swal.fire(
+                    'Updated!',
+                    'Your toy has been updated.',
+                    'success'
+                )
+
+                // change control value for loading my toys again 
+                setControl(!control)
+            }
+        })
+    }
 
     const handleDeleteToy = (id) => {
         Swal.fire({
@@ -47,7 +71,7 @@ const MyToys = () => {
             }
         })
     }
-    
+
     return (
         <div className="max-w-7xl mx-auto lg:px-10 my-12">
             <h3 className="font-bold text-3xl text-center text-[#333E48] mb-10">All the Toys you have added</h3>
@@ -73,6 +97,7 @@ const MyToys = () => {
                                 sl={idx}
                                 toy={toy}
                                 handleDeleteToy={handleDeleteToy}
+                                handleUpdateToy={handleUpdateToy}
                             ></MyToyRow>)
                         }
                     </tbody>
