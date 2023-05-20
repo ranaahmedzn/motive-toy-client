@@ -6,11 +6,13 @@ import SignUp from "../pages/SignUp/SignUp";
 import SecondaryLayout from "../layouts/SecondaryLayout/SecondaryLayout";
 import AllToys from "../pages/AllToys/AllToys";
 import AddAToy from "../pages/AddAToy/AddAToy";
+import ErrorPage from "../pages/ErrorPage/ErrorPage";
 
 const router = createBrowserRouter([
     {
         path: "/",
         element: <MainLayout />,
+        // errorElement: <ErrorPage />,
         children: [
             {
                 path: '/',
@@ -39,6 +41,10 @@ const router = createBrowserRouter([
                 element: <AddAToy />
             }
         ]
+    },
+    {
+        path: "*",
+        element: <ErrorPage />
     }
 ]);
 
