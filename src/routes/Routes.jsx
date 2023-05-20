@@ -9,6 +9,7 @@ import AddAToy from "../pages/AddAToy/AddAToy";
 import ErrorPage from "../pages/ErrorPage/ErrorPage";
 import MyToys from "../pages/MyToys/MyToys";
 import ProtectedRoute from "./ProtectedRoute";
+import BlogPage from "../pages/BlogPage/BlogPage";
 
 const router = createBrowserRouter([
     {
@@ -47,6 +48,10 @@ const router = createBrowserRouter([
                 element: <ProtectedRoute><MyToys /></ProtectedRoute>
             }
         ]
+    },
+    {
+        path: '/blog',
+        element: <BlogPage />
     },
     {
         path: "*",
