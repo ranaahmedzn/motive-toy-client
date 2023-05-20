@@ -3,13 +3,16 @@ import { AuthContext } from "../../providers/AuthProvider";
 import MyToyRow from "./MyToyRow";
 import Swal from "sweetalert2";
 import { Helmet } from "react-helmet-async";
+import { FaAngleDown } from "react-icons/fa";
 
 const MyToys = () => {
     const [toys, setToys] = useState([])
     const [control, setControl] = useState(false)
+    const [selectedValue, setSelectedValue] = useState('Sort By Price')
+    console.log(selectedValue)
     const { user } = useContext(AuthContext)
 
-    const url = `http://localhost:5000/my-toys?email=${user?.email}`
+    const url = `http://localhost:5000/my-toys?email=${user?.email}&type=${selectedValue}`
 
     useEffect(() => {
         fetch(url)
@@ -25,20 +28,20 @@ const MyToys = () => {
             },
             body: JSON.stringify(updatedToy)
         })
-        .then(res => res.json())
-        .then(data => {
-            console.log(data)
-            if(data.modifiedCount > 0){
-                Swal.fire(
-                    'Updated!',
-                    'Your toy has been updated.',
-                    'success'
-                )
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                if (data.modifiedCount > 0) {
+                    Swal.fire(
+                        'Updated!',
+                        'Your toy has been updated.',
+                        'success'
+                    )
 
-                // change control value for loading my toys again 
-                setControl(!control)
-            }
-        })
+                    // change control value for loading my toys again 
+                    setControl(!control)
+                }
+            })
     }
 
     const handleDeleteToy = (id) => {
@@ -80,6 +83,14 @@ const MyToys = () => {
             </Helmet>
             <h3 className="font-bold text-3xl text-center text-[#333E48] mb-10">All the Toys you have added</h3>
 
+            <div className="mb-6">
+                <select onChange={(e) => setSelectedValue(e.target.value)} defaultValue={selectedValue} className="bg-gray-50 border border-gray-300 text-gray-900 text-base font-medium rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-fit p-2.5">
+                <option selected>Sort By Price</option>
+                    <option value="Ascending">Ascending</option>
+                    <option value="Descending">Descending</option>
+                </select>
+            </div>
+
             <div className="overflow-x-auto w-full">
                 <table className="table w-full">
                     {/* head */}
@@ -89,7 +100,7 @@ const MyToys = () => {
                             <th>Picture</th>
                             <th>Name</th>
                             <th>Sub-Category</th>
-                            <th>Price</th>
+                            <th className="flex items-center gap-2">Price <FaAngleDown className="text-lg cursor-pointer" /></th>
                             <th>Available Quantity</th>
                             <th>Actions</th>
                         </tr>
