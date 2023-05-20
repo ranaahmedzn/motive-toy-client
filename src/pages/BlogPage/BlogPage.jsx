@@ -3,6 +3,8 @@ import { AuthContext } from "../../providers/AuthProvider";
 import LoadingPage from "../LoadingPage/LoadingPage";
 import Header from "../Shared/Header/Header";
 import Footer from "../Shared/Footer/Footer";
+import { HiThumbUp } from "react-icons/hi";
+import { BsFillPinAngleFill, BsFillCursorFill } from "react-icons/bs";
 
 const BlogPage = () => {
     const { loading } = useContext(AuthContext)
@@ -14,24 +16,34 @@ const BlogPage = () => {
         <div>
             <div className="lg:py-8">
                 <Header></Header>
-            </div> 
-            <div className="max-w-7xl mx-auto px-10 grid grid-cols-1 lg:grid-cols-3">
+            </div>
+            <div className="max-w-7xl mx-auto px-10 grid grid-cols-1 lg:grid-cols-3 mb-10">
                 {/* blogs section  */}
                 <section className="col-span-2 w-full flex flex-col items-center px-3">
                     <article className="p-6 flex flex-col my-4 border shadow rounded-lg overflow-hidden">
                         {/* <!-- Article Image --> */}
-                        
-                        <div className="flex gap-2 items-center mb-5">
-                            <img src="https://i.ibb.co/QHfKVfL/profile2.jpg" alt="" className="h-[50px] rounded-full" />
-                            <div>
-                                <h4 className="text-2xl font-bold">Tom John</h4>
-                                <p>November 8, 2022</p>
+
+                        <div className="flex justify-between items-center">
+                            <div className="flex gap-2 items-center mb-5">
+                                <img src="https://i.ibb.co/QHfKVfL/profile2.jpg" alt="" className="h-[50px] rounded-full" />
+                                <div>
+                                    <h4 className="text-2xl font-bold">Tom John</h4>
+                                    <p>November 8, 2022</p>
+                                </div>
+                            </div>
+                            <div className="flex gap-2">
+                                <span className="bg-[#f0f0f0] p-2 rounded-full text-xl">
+                                    <HiThumbUp />
+                                </span>
+                                <span className="bg-[#f0f0f0] p-2 rounded-full">
+                                    <BsFillPinAngleFill/>
+                                </span>
                             </div>
                         </div>
 
                         <div className="bg-white flex flex-col justify-start space-y-5">
                             <h2 className="text-4xl font-semibold">
-                            What is an access token and refresh token? How do they work and where should we store them on the client-side?
+                                What is an access token and refresh token? How do they work and where should we store them on the client-side?
                             </h2>
 
                             <img src="https://source.unsplash.com/collection/1346951/1000x500?sig=2" className="rounded-lg h-[300px]" />
@@ -43,18 +55,27 @@ const BlogPage = () => {
                     </article>
 
                     <article className="p-6 flex flex-col my-4 border shadow rounded-lg overflow-hidden">
-                        {/* <!-- Article Image --> */}
-                        <div className="flex gap-2 items-center mb-5">
-                            <img src="https://i.ibb.co/QHfKVfL/profile2.jpg" alt="" className="h-[50px] rounded-full" />
-                            <div>
-                                <h4 className="text-2xl font-bold">Tom John</h4>
-                                <p>March 18, 2023</p>
+                        <div className="flex justify-between items-center">
+                            <div className="flex gap-2 items-center mb-5">
+                                <img src="https://i.ibb.co/QHfKVfL/profile2.jpg" alt="" className="h-[50px] rounded-full" />
+                                <div>
+                                    <h4 className="text-2xl font-bold">Tom John</h4>
+                                    <p>November 8, 2022</p>
+                                </div>
+                            </div>
+                            <div className="flex gap-2">
+                                <span className="bg-[#f0f0f0] p-2 rounded-full text-xl">
+                                    <HiThumbUp />
+                                </span>
+                                <span className="bg-[#f0f0f0] p-2 rounded-full">
+                                    <BsFillPinAngleFill/>
+                                </span>
                             </div>
                         </div>
 
                         <div className="bg-white flex flex-col justify-start space-y-5">
                             <h2 className="text-4xl font-semibold">
-                            Compare SQL and NoSQL databases?
+                                Compare SQL and NoSQL databases?
                             </h2>
 
                             <img src="https://source.unsplash.com/collection/1346951/1000x500?sig=3" className="rounded-lg h-[300px]" />
@@ -65,18 +86,27 @@ const BlogPage = () => {
                         </div>
                     </article>
                     <article className="p-6 flex flex-col my-4 border shadow rounded-lg overflow-hidden">
-                        {/* <!-- Article Image --> */}
-                        <div className="flex gap-2 items-center mb-5">
-                            <img src="https://i.ibb.co/QHfKVfL/profile2.jpg" alt="" className="h-[50px] rounded-full" />
-                            <div>
-                                <h4 className="text-2xl font-bold">Tom John</h4>
-                                <p>January 03, 2023</p>
+                        <div className="flex justify-between items-center">
+                            <div className="flex gap-2 items-center mb-5">
+                                <img src="https://i.ibb.co/QHfKVfL/profile2.jpg" alt="" className="h-[50px] rounded-full" />
+                                <div>
+                                    <h4 className="text-2xl font-bold">Tom John</h4>
+                                    <p>November 8, 2022</p>
+                                </div>
+                            </div>
+                            <div className="flex gap-2">
+                                <span className="bg-[#f0f0f0] p-2 rounded-full text-xl">
+                                    <HiThumbUp />
+                                </span>
+                                <span className="bg-[#f0f0f0] p-2 rounded-full">
+                                    <BsFillPinAngleFill/>
+                                </span>
                             </div>
                         </div>
 
                         <div className="bg-white flex flex-col justify-start space-y-5">
                             <h2 className="text-4xl font-semibold">
-                            What is express JS? What is Nest JS
+                                What is express JS? What is Nest JS
                             </h2>
 
                             <img src="https://source.unsplash.com/collection/1346951/1000x500?sig=3" className="rounded-lg h-[300px]" />
@@ -88,18 +118,27 @@ const BlogPage = () => {
                     </article>
 
                     <article className="p-6 flex flex-col my-4 border shadow rounded-lg overflow-hidden">
-                        {/* <!-- Article Image --> */}
-                        <div className="flex gap-2 items-center mb-5">
-                            <img src="https://i.ibb.co/QHfKVfL/profile2.jpg" alt="" className="h-[50px] rounded-full" />
-                            <div>
-                                <h4 className="text-2xl font-bold">Tom John</h4>
-                                <p>May 25, 2023</p>
+                        <div className="flex justify-between items-center">
+                            <div className="flex gap-2 items-center mb-5">
+                                <img src="https://i.ibb.co/QHfKVfL/profile2.jpg" alt="" className="h-[50px] rounded-full" />
+                                <div>
+                                    <h4 className="text-2xl font-bold">Tom John</h4>
+                                    <p>November 8, 2022</p>
+                                </div>
+                            </div>
+                            <div className="flex gap-2">
+                                <span className="bg-[#f0f0f0] p-2 rounded-full text-xl">
+                                    <HiThumbUp />
+                                </span>
+                                <span className="bg-[#f0f0f0] p-2 rounded-full">
+                                    <BsFillPinAngleFill/>
+                                </span>
                             </div>
                         </div>
 
                         <div className="bg-white flex flex-col justify-start space-y-5">
                             <h2 className="text-4xl font-semibold">
-                            What is MongoDB aggregate and how does it work?
+                                What is MongoDB aggregate and how does it work?
                             </h2>
 
                             <img src="https://source.unsplash.com/collection/1346951/1000x500?sig=3" className="rounded-lg h-[300px]" />
@@ -133,9 +172,10 @@ const BlogPage = () => {
                     <div className="w-full bg-white flex flex-col my-4 p-6 border rounded-lg">
                         <p className="text-xl font-semibold pb-5">About Us</p>
                         <p className="pb-2">Step into a world of toys that captivate, inspire, and ignite the imagination. Our website is a haven for all toy enthusiasts, offering a carefully curated selection of timeless classics and cutting-edge treasures. From cuddly companions to brain-teasing puzzles, each toy holds the potential for endless hours of joy and discovery. Embrace the magic of play and explore a universe where dreams come true, one toy at a time.</p>
-                        <a href="#" className="w-full bg-[#0787EA] text-white font-bold text-sm uppercase rounded hover:bg-blue-700 flex items-center justify-center px-2 py-3 mt-4">
-                            Subscribe
-                        </a>
+                        <button className="w-full bg-[#0787EA] text-white font-bold text-sm uppercase rounded hover:bg-blue-700 flex gap-2 items-center justify-center px-2 py-3 mt-4">
+                            <BsFillCursorFill className="text-xl" />
+                            <span>Subscribe</span>
+                        </button>
                     </div>
 
                 </div>
