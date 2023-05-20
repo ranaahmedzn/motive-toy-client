@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import ToyRow from "./ToyRow";
 import { FaSearch } from "react-icons/fa";
+import { Helmet } from "react-helmet-async";
 
 const AllToys = () => {
     const [toys, setToys] = useState([])
@@ -23,6 +24,9 @@ const AllToys = () => {
 
     return (
         <div className="max-w-7xl mx-auto lg:px-10 my-12 overflow-x-auto">
+            <Helmet>
+                <title>Motive Toy | All Toys</title>
+            </Helmet>
             <div className="mb-10 space-y-6">
                 <h3 className="font-bold text-3xl text-center text-[#333E48]">Search Toy By Name</h3>
                 <form onSubmit={handleSearch} className="w-1/2 mx-auto">

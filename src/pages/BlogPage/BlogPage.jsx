@@ -5,6 +5,7 @@ import Header from "../Shared/Header/Header";
 import Footer from "../Shared/Footer/Footer";
 import { HiThumbUp } from "react-icons/hi";
 import { BsFillPinAngleFill, BsFillCursorFill } from "react-icons/bs";
+import { Helmet } from "react-helmet-async";
 
 const BlogPage = () => {
     const { loading } = useContext(AuthContext)
@@ -14,6 +15,9 @@ const BlogPage = () => {
     }
     return (
         <div>
+            <Helmet>
+                <title>Motive Toy | Blog</title>
+            </Helmet>
             <div className="lg:py-8">
                 <Header></Header>
             </div>

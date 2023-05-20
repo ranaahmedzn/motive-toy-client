@@ -5,6 +5,7 @@ import { useContext, useState } from 'react';
 import { AuthContext } from '../../providers/AuthProvider';
 import { toast } from 'react-hot-toast';
 import { RiAlertFill } from "react-icons/ri";
+import { Helmet } from 'react-helmet-async';
 
 const SignUp = () => {
     const [show, setShow] = useState(false)
@@ -64,6 +65,9 @@ const SignUp = () => {
 
     return (
         <div className='bg-[#0787EA] pt-8 pb-16'>
+            <Helmet>
+                <title>Motive Toy | Sign Up</title>
+            </Helmet>
             <div className='max-w-7xl mx-auto flex items-center justify-center'>
                 <div className="w-3/4 h-full box-border mx-auto flex rounded-lg overflow-hidden border">
                     <img src={image} alt="" className='w-2/5' />

@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../providers/AuthProvider";
 import MyToyRow from "./MyToyRow";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet-async";
 
 const MyToys = () => {
     const [toys, setToys] = useState([])
@@ -74,6 +75,9 @@ const MyToys = () => {
 
     return (
         <div className="max-w-7xl mx-auto lg:px-10 my-12">
+            <Helmet>
+                <title>Motive Toy | My Toys</title>
+            </Helmet>
             <h3 className="font-bold text-3xl text-center text-[#333E48] mb-10">All the Toys you have added</h3>
 
             <div className="overflow-x-auto w-full">

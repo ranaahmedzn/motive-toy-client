@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Helmet } from "react-helmet-async";
 import Swal from "sweetalert2";
 
 const AddAToy = () => {
@@ -43,6 +44,9 @@ const AddAToy = () => {
 
     return (
         <div className="max-w-7xl mx-auto lg:px-10 my-12">
+            <Helmet>
+                <title>Motive Toy | Add A Toy</title>
+            </Helmet>
             <div className="text-center space-y-3">
                 <h2 className="font-bold text-3xl text-center text-[#333E48]">Add a new Toy</h2>
                 <p className="text-gray-500"> Add Your Favorite Sports Toys to the Collection and Elevate Your Game to New Heights!</p>

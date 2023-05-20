@@ -6,6 +6,7 @@ import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import { useContext, useState } from 'react';
 import { AuthContext } from '../../providers/AuthProvider';
 import { toast } from 'react-hot-toast';
+import { Helmet } from 'react-helmet-async';
 
 const Login = () => {
     const [email, setEmail] = useState('')
@@ -72,6 +73,9 @@ const Login = () => {
 
     return (
         <div className='bg-[#0787EA] pt-8 pb-16'>
+            <Helmet>
+                <title>Motive Toy | Login</title>
+            </Helmet>
             <div className='max-w-7xl mx-auto flex items-center justify-center'>
                 <div className="w-3/4 mx-auto flex flex-row-reverse rounded-lg overflow-hidden border">
                     <img src={image} alt="" className='w-2/5' />
