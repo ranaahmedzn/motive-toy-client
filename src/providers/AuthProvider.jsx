@@ -9,12 +9,14 @@ const twitterProvider = new TwitterAuthProvider()
 
 const AuthProvider = ({children}) => {
     const [user, setUser] = useState(null)
+    const [loading, setLoading] = useState(true)
     // console.log(user)
 
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, currentUser => {
             // console.log(currentUser);
             setUser(currentUser)
+            setLoading(false)
         })
         
         return () => unsubscribe();
@@ -53,6 +55,7 @@ const AuthProvider = ({children}) => {
 
     const authInfo = {
         user,
+        loading,
         createUser,
         signInUser,
         signOutUser,
