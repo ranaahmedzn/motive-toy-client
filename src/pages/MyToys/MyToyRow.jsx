@@ -1,6 +1,6 @@
 
-const MyToyRow = ({ toy, sl }) => {
-    const { toyName, pictureUrl, price, quantity, selectedValue } = toy || {};
+const MyToyRow = ({ toy, sl, handleDeleteToy}) => {
+    const {_id, toyName, pictureUrl, price, quantity, selectedValue } = toy || {};
 
     return (
         <tr>
@@ -24,7 +24,7 @@ const MyToyRow = ({ toy, sl }) => {
             <td>{quantity}</td>
             <td>
                 <button className="btn mr-2">Update</button>
-                <button className="btn">Delete</button>
+                <button onClick={() => handleDeleteToy(_id)} className="btn">Delete</button>
             </td>
         </tr>
     );
