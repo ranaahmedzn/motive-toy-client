@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import image from '../../../assets/images/image2.png'
 
 const Banner = () => {
@@ -7,7 +8,8 @@ const Banner = () => {
                 <div className="w-full lg:w-1/2 space-y-5 lg:-mt-[32px]">
                     <h1 className="text-[46px] lg:text-6xl font-bold text-white leading-[55px] lg:leading-[65px]">Your Ultimate <br /> Destination for Play</h1>
                     <p className="text-gray-100">Unleash the joy of play at Your Ultimate Destination for Play. Discover a wide range of high-quality toys that ignite imagination and bring endless fun. Find the perfect toy to create cherished memories and laughter-filled moments.</p>
-                    <button className="secondary-btn">Explore More</button>
+                    <button className="secondary-btn mr-4">Explore More</button>
+                    <Link to='/toys/all-toys'><button className='outlined-btn'>All Toys</button></Link>
                 </div>
                 <div className='hidden lg:block w-full lg:w-1/2'>
                     <img

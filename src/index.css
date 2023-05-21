@@ -9,6 +9,15 @@
 .secondary-btn{
     @apply py-2.5 px-5 rounded-md bg-[#333E48] text-base font-bold text-white
 }
+.tertiary-btn{
+    @apply py-2 px-3 cursor-pointer rounded-md bg-[#333E48] text-base font-bold text-white
+}
+.outlined-btn{
+    @apply py-2.5 px-5 cursor-pointer rounded-md ring-2 ring-white  text-base font-bold text-white
+}
+.outlined-btn:hover{
+    @apply bg-[#333E48] ring-0
+}
 .rounded-btn{
     @apply py-2.5 px-5 w-full rounded-full bg-[#0787EA] text-base font-bold text-white
 }

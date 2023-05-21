@@ -26,10 +26,10 @@ const MyToyRow = ({ toy, sl, handleDeleteToy, handleUpdateToy}) => {
                 <td>${price}</td>
                 <td>{availableQuantity}</td>
                 <td>
-                    <label htmlFor={`my-modal-${sl + 1}`} className="btn mr-2">Update</label>
+                    <label htmlFor={`my-modal-${sl + 1}`} className="tertiary-btn mr-2">Update</label>
                     <UpdateModal handleUpdateToy={handleUpdateToy} sl={sl} toy={toy} />
 
-                    <button onClick={() => handleDeleteToy(_id)} className="btn">Delete</button>
+                    <button onClick={() => handleDeleteToy(_id)} className="tertiary-btn">Delete</button>
                 </td>
             </tr>
         </>
