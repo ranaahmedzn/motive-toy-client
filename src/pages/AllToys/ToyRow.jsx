@@ -11,7 +11,7 @@ const ToyRow = ({toy, sl}) => {
             <td>{SubCategory}</td>
             <td>{Price}</td>
             <td>{AvailableQuantity}</td>
-            <td><Link to={`/toy/${_id}`}><button className="rounded-btn">View Details</button></Link></td>
+            <td><Link to={`/toys/toy/${_id}`}><button className="rounded-btn">View Details</button></Link></td>
         </tr>
     );
 };

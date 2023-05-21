@@ -38,7 +38,7 @@ const ToyCard = ({ toy }) => {
                     </div>
                 </div>
                 <div>
-                    <Link onClick={handleNotify} to={`/toy/${_id}`}><button className="rounded-btn">View Details</button></Link>
+                    <Link onClick={handleNotify} to={`/toys/toy/${_id}`}><button className="rounded-btn">View Details</button></Link>
                 </div>
             </div>
         </div>

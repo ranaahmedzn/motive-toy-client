@@ -8,7 +8,7 @@ const AllToys = () => {
     const [searchText, setSearchText] = useState('')
 
     useEffect(() => {
-        fetch('https://motive-toy-server.vercel.app/all-toys')
+        fetch('http://localhost:5000/all-toys')
             .then(res => res.json())
             .then(data => setToys(data))
     }, [])
@@ -16,7 +16,7 @@ const AllToys = () => {
     const handleSearch = (e) => {
         e.preventDefault()
 
-        fetch(`https://motive-toy-server.vercel.app/getToys-byText?search=${searchText}`)
+        fetch(`http://localhost:5000/getToys-byText?search=${searchText}`)
             .then(res => res.json())
             .then(data => setToys(data))
     }

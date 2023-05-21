@@ -10,6 +10,7 @@ import ErrorPage from "../pages/ErrorPage/ErrorPage";
 import MyToys from "../pages/MyToys/MyToys";
 import ProtectedRoute from "./ProtectedRoute";
 import BlogPage from "../pages/BlogPage/BlogPage";
+import ToyDetails from "../pages/ToyDetails/ToyDetails";
 
 const router = createBrowserRouter([
     {
@@ -46,6 +47,10 @@ const router = createBrowserRouter([
             {
                 path: 'my-toys',
                 element: <ProtectedRoute><MyToys /></ProtectedRoute>
+            },
+            {
+                path: 'toy/:id',
+                element: <ProtectedRoute><ToyDetails /></ProtectedRoute>
             }
         ]
     },

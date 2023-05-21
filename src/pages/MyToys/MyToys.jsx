@@ -11,7 +11,7 @@ const MyToys = () => {
     const [selectedValue, setSelectedValue] = useState('Sort By Price')
     const { user } = useContext(AuthContext)
 
-    const url = `https://motive-toy-server.vercel.app/my-toys?email=${user?.email}&type=${selectedValue}`
+    const url = `http://localhost:5000/my-toys?email=${user?.email}&type=${selectedValue}`
 
     useEffect(() => {
         fetch(url)
@@ -20,7 +20,7 @@ const MyToys = () => {
     }, [url, control])
 
     const handleUpdateToy = (id, updatedToy) => {
-        fetch(`https://motive-toy-server.vercel.app/toys/update-toy/${id}`, {
+        fetch(`http://localhost:5000/toys/update-toy/${id}`, {
             method: 'PATCH',
             headers: {
                 'content-type': 'application/json'
@@ -54,7 +54,7 @@ const MyToys = () => {
             confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`https://motive-toy-server.vercel.app/toys/delete-toy/${id}`, {
+                fetch(`http://localhost:5000/toys/delete-toy/${id}`, {
                     method: 'DELETE',
                 })
                     .then(res => res.json())
