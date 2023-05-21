@@ -19,27 +19,27 @@ const AddAToy = () => {
         const rating = form.rating.value;
         const description = form.description.value;
 
-        const newToy = {toyName, pictureUrl, sellerName, sellerEmail, selectedValue, price, quantity, rating, description}
+        const newToy = { toyName, pictureUrl, sellerName, sellerEmail, selectedValue, price, quantity, rating, description }
         // console.log(newToy)
 
-        fetch('http://localhost:5000/toys/add-toy', {
+        fetch('https://motive-toy-server.vercel.app/toys/add-toy', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
             },
             body: JSON.stringify(newToy)
         })
-        .then(res => res.json())
-        .then(data => {
-            console.log(data)
-            if(data.insertedId){
-                Swal.fire(
-                    'Added',
-                    'Successfully added a new toy!',
-                    'success'
-                )
-            }
-        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                if (data.insertedId) {
+                    Swal.fire(
+                        'Added',
+                        'Successfully added a new toy!',
+                        'success'
+                    )
+                }
+            })
     }
 
     return (
@@ -57,22 +57,22 @@ const AddAToy = () => {
                     <div className="grid grid-cols-1 gap-6 mt-4 sm:grid-cols-2">
                         <div>
                             <label className="font-medium text-white dark:text-gray-200" htmlFor="username">Toy Name</label>
-                            <input id="toyName" type="text" className="block w-full px-2.5 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md focus:outline-none" required/>
+                            <input id="toyName" type="text" className="block w-full px-2.5 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md focus:outline-none" required />
                         </div>
 
                         <div>
                             <label className="font-medium text-white dark:text-gray-200" htmlFor="pictureUrl">Picture URL</label>
-                            <input id="pictureUrl" type="url" className="block w-full px-2.5 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md focus:outline-none" required/>
+                            <input id="pictureUrl" type="url" className="block w-full px-2.5 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md focus:outline-none" required />
                         </div>
 
                         <div>
                             <label className="font-medium text-white dark:text-gray-200" htmlFor="sellerName">Seller Name</label>
-                            <input id="sellerName" type="text" className="block w-full px-2.5 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md focus:outline-none" required/>
+                            <input id="sellerName" type="text" className="block w-full px-2.5 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md focus:outline-none" required />
                         </div>
 
                         <div>
                             <label className="font-medium text-white dark:text-gray-200" htmlFor="setterEmail">Seller Email</label>
-                            <input id="sellerEmail" type="email" className="block w-full px-2.5 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md focus:outline-none" required/>
+                            <input id="sellerEmail" type="email" className="block w-full px-2.5 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md focus:outline-none" required />
                         </div>
                         <div>
                             <label className="font-medium text-white dark:text-gray-200" htmlFor="passwordConfirmation">Sub-category</label>
@@ -84,17 +84,17 @@ const AddAToy = () => {
                         </div>
                         <div>
                             <label className="font-medium text-white dark:text-gray-200" htmlFor="price">Price</label>
-                            <input id="price" type="number" className="block w-full px-2.5 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md focus:outline-none" required/>
+                            <input id="price" type="number" className="block w-full px-2.5 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md focus:outline-none" required />
                         </div>
-                        
+
                         <div>
                             <label className="font-medium text-white dark:text-gray-200" htmlFor="quantity">Available Quantity</label>
-                            <input id="quantity" type="number" className="block w-full px-2.5 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md focus:outline-none" required/>
+                            <input id="quantity" type="number" className="block w-full px-2.5 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md focus:outline-none" required />
                         </div>
-                        
+
                         <div>
                             <label className="font-medium text-white dark:text-gray-200" htmlFor="rating">Rating</label>
-                            <input id="rating" type="text" className="block w-full px-2.5 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md focus:outline-none" required/>
+                            <input id="rating" type="text" className="block w-full px-2.5 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md focus:outline-none" required />
                         </div>
                         <div>
                             <label className="font-medium text-white dark:text-gray-200" htmlFor="description">Description</label>

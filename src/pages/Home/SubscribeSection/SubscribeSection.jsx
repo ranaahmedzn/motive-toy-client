@@ -2,14 +2,14 @@ import { FaEnvelope } from "react-icons/fa";
 
 const SubscribeSection = () => {
     return (
-        <div className="max-w-7xl mx-auto px-10 mb-16">
-            <div className="h-[380px] bg-[#0787EA] flex items-center justify-center rounded-3xl">
+        <div className="max-w-7xl mx-auto px-4 lg:px-10 mb-16">
+            <div className="h-[380px] p-4 bg-[#0787EA] flex items-center justify-center rounded-3xl">
                 <div>
                     <div className="text-center w-full  space-y-4 mb-7">
                         <h3 className="font-bold text-4xl text-white">Subscribe to our Newsletter for updated</h3>
-                        <p className="w-3/5 mx-auto text-gray-100">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Pariatur illo facere, cupiditate in laboriosam autem hic nihil libero laborum rerum?</p>
+                        <p className="w-full lg:w-3/5 mx-auto text-gray-100">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Pariatur illo facere, cupiditate in laboriosam autem hic nihil libero laborum rerum?</p>
                     </div>
-                    <form className="w-1/2 mx-auto">
+                    <form className="w-full md:w-1/2 mx-auto">
                         <label htmlFor="search" className="mb-2 text-sm font-medium text-gray-900 sr-only ">Search</label>
                         <div className="relative">
                             <div className="absolute inset-y-0 left-1 flex items-center pl-3 pointer-events-none">

@@ -58,7 +58,7 @@ const Footer = () => {
                 </div>
             </div>
             <div className="bg-[#EAEAEA] py-5">
-                <div className="max-w-7xl mx-auto flex-col-reverse md:flex-row flex gap-4 justify-between px-4 lg:px-10">
+                <div className="max-w-7xl mx-auto flex-col-reverse md:flex-row flex gap-4 items-center justify-between px-4 lg:px-10">
                     <div className="text-[#333E48]">&copy;2023 <span className="font-bold">Motive Toy</span> || All Right Reserved</div>
                     <div className="text-[#333E48] flex gap-4">
                         <p><Link to='/terms'>Terms</Link></p>

@@ -3,16 +3,15 @@ import { AuthContext } from "../../providers/AuthProvider";
 import MyToyRow from "./MyToyRow";
 import Swal from "sweetalert2";
 import { Helmet } from "react-helmet-async";
-import { FaAngleDown } from "react-icons/fa";
+import { FaArrowDown, FaArrowUp, FaRandom } from "react-icons/fa";
 
 const MyToys = () => {
     const [toys, setToys] = useState([])
     const [control, setControl] = useState(false)
     const [selectedValue, setSelectedValue] = useState('Sort By Price')
-    console.log(selectedValue)
     const { user } = useContext(AuthContext)
 
-    const url = `http://localhost:5000/my-toys?email=${user?.email}&type=${selectedValue}`
+    const url = `https://motive-toy-server.vercel.app/my-toys?email=${user?.email}&type=${selectedValue}`
 
     useEffect(() => {
         fetch(url)
@@ -21,7 +20,7 @@ const MyToys = () => {
     }, [url, control])
 
     const handleUpdateToy = (id, updatedToy) => {
-        fetch(`http://localhost:5000/toys/update-toy/${id}`, {
+        fetch(`https://motive-toy-server.vercel.app/toys/update-toy/${id}`, {
             method: 'PATCH',
             headers: {
                 'content-type': 'application/json'
@@ -55,7 +54,7 @@ const MyToys = () => {
             confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:5000/toys/delete-toy/${id}`, {
+                fetch(`https://motive-toy-server.vercel.app/toys/delete-toy/${id}`, {
                     method: 'DELETE',
                 })
                     .then(res => res.json())
@@ -85,7 +84,7 @@ const MyToys = () => {
 
             <div className="mb-6">
                 <select onChange={(e) => setSelectedValue(e.target.value)} defaultValue={selectedValue} className="bg-gray-50 border border-gray-300 text-gray-900 text-base font-medium rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-fit p-2.5">
-                <option selected>Sort By Price</option>
+                    <option selected>Sort By Price</option>
                     <option value="Ascending">Ascending</option>
                     <option value="Descending">Descending</option>
                 </select>
@@ -100,7 +99,11 @@ const MyToys = () => {
                             <th>Picture</th>
                             <th>Name</th>
                             <th>Sub-Category</th>
-                            <th className="flex items-center gap-2">Price <FaAngleDown className="text-lg cursor-pointer" /></th>
+                            <th className="flex items-center gap-1">Price
+                                {
+                                    selectedValue === "Ascending" ? <FaArrowDown /> : selectedValue === "Descending" ? <FaArrowUp /> : <FaRandom />
+                                }
+                            </th>
                             <th>Available Quantity</th>
                             <th>Actions</th>
                         </tr>
