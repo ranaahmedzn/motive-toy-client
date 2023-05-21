@@ -3,7 +3,7 @@ import { Helmet } from "react-helmet-async";
 import Swal from "sweetalert2";
 
 const AddAToy = () => {
-    const [selectedValue, setSelectedValue] = useState('')
+    const [subCategory, setSubCategory] = useState('')
     // console.log(selectedValue)
 
     const handleAddToy = (event) => {
@@ -15,14 +15,14 @@ const AddAToy = () => {
         const sellerName = form.sellerName.value;
         const sellerEmail = form.sellerEmail.value;
         const price = form.price.value;
-        const quantity = form.quantity.value;
+        const availableQuantity = form.quantity.value;
         const rating = form.rating.value;
         const description = form.description.value;
 
-        const newToy = { toyName, pictureUrl, sellerName, sellerEmail, selectedValue, price, quantity, rating, description }
+        const newToy = { toyName, pictureUrl, sellerName, sellerEmail, subCategory, price, availableQuantity, rating, description }
         // console.log(newToy)
 
-        fetch('http://localhost:5000/toys/add-toy', {
+        fetch('https://motive-toy-server.vercel.app/toys/add-toy', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -76,7 +76,7 @@ const AddAToy = () => {
                         </div>
                         <div>
                             <label className="font-medium text-white dark:text-gray-200" htmlFor="passwordConfirmation">Sub-category</label>
-                            <select onChange={(e) => setSelectedValue(e.target.value)} defaultValue={setSelectedValue} className="block w-full px-2.5 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md focus:outline-none">
+                            <select onChange={(e) => setSubCategory(e.target.value)} defaultValue={subCategory} className="block w-full px-2.5 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md focus:outline-none">
                                 <option value='Indoor'>Indoor</option>
                                 <option value='Outdoor'>Outdoor</option>
                                 <option value='Miniature'>Miniature </option>

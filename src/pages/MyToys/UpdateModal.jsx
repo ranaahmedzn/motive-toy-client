@@ -7,10 +7,10 @@ const UpdateModal = ({ toy, sl, handleUpdateToy}) => {
 
         const form = event.target;
         const price = form.price.value;
-        const quantity = form.quantity.value;
+        const availableQuantity = form.quantity.value;
         const description = form.description.value;
 
-        const updatedToy = { price, quantity, description}
+        const updatedToy = { price, availableQuantity, description}
         // console.log(newToy)
 
         handleUpdateToy(_id, updatedToy)
@@ -33,7 +33,7 @@ const UpdateModal = ({ toy, sl, handleUpdateToy}) => {
 
                             <div>
                                 <label className="font-medium text-[#333E48] dark:text-gray-200" htmlFor="quantity">Available Quantity</label>
-                                <input id="quantity" type="number" className="block w-full px-2.5 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md focus:outline-none" defaultValue={toy.quantity} required />
+                                <input id="quantity" type="number" className="block w-full px-2.5 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md focus:outline-none" defaultValue={toy.availableQuantity} required />
                             </div>
                             <div className="col-span-2">
                                 <label className="font-medium text-[#333E48] dark:text-gray-200" htmlFor="description">Description</label>

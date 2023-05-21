@@ -7,7 +7,7 @@ import { toast } from "react-hot-toast";
 
 const ToyCard = ({ toy }) => {
     const {user} = useContext(AuthContext)
-    const { _id, toy_name, picture, price, rating } = toy || {};
+    const { _id, toyName, pictureUrl, price, rating } = toy || {};
 
     const handleNotify = () => {
         if(!user){
@@ -20,10 +20,10 @@ const ToyCard = ({ toy }) => {
     return (
         <div className="card w-full shadow-lg bg-gradient-to-r from-blue-50 to-cyan-50 border">
             <figure className="px-5 pt-5">
-                <img src={picture} alt="Shoes" className="rounded-xl" />
+                <img src={pictureUrl} alt="Shoes" className="rounded-xl" />
             </figure>
             <div className="p-5 space-y-4">
-                <h2 className="font-bold text-2xl text-[#333E48]">{toy_name}</h2>
+                <h2 className="font-bold text-2xl text-[#333E48]">{toyName}</h2>
                 <div className="flex justify-between items-center">
                         <p className="font-bold text-4xl text-rose-500">${price}</p>
                     <div>
