@@ -12,7 +12,7 @@ const SecondaryLayout = () => {
         return <LoadingPage />
     }
     return (
-        <div>
+        <div style={{backgroundImage: 'url(https://tailwindui.com/img/beams-home@95.jpg)', backgroundSize: 'cover', backgroundPosition: 'top'}}>
             <div className="lg:py-8">
                 <Header></Header>
             </div>

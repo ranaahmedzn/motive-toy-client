@@ -19,10 +19,10 @@ const Header = () => {
     }
 
     return (
-        <div className={`max-w-7xl lg:px-10 mx-auto relative`}>
+        <div className={`max-w-7xl lg:px-10 mx-auto`}>
             {/* overlay */}
             {
-                open ? <div className="lg:hidden absolute w-full h-screen bg-gray-700 opacity-40"> </div> : ''
+                open ? <div className="lg:hidden fixed w-full h-screen bg-gray-700 opacity-40"> </div> : ''
             }
             {/* navbar */}
             <div className="w-full flex items-center h-[90px] px-4 lg:px-10 lg:justify-between bg-white border border-[#0787EA] lg:rounded-lg">
@@ -56,7 +56,7 @@ const Header = () => {
             </div>
 
             {/* sidebar */}
-            <div className={`md:hidden w-3/4 h-screen absolute transition-all duration-500 ${open ? 'top-0 left-0' : 'top-0 -left-full'}`}>
+            <div className={`md:hidden w-3/4 h-screen fixed z-50 transition-all duration-500 ${open ? 'top-0 left-0' : 'top-0 -left-full'}`}>
                 <ul className="p-4 pr-10 pt-10 bg-base-300 space-y-8 h-full relative">
                     <MenuItems></MenuItems>
                     {

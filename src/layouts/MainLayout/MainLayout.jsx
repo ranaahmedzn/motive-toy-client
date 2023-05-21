@@ -14,7 +14,7 @@ const MainLayout = () => {
 
     return (
         <div>
-            <div className="w-full h-full lg:py-8 bg-[#0787EA]">
+            <div className="w-full h-full lg:py-8 overflow-hidden bg-[#0787EA]">
                 <Header></Header>
             </div>
             <Outlet></Outlet>
