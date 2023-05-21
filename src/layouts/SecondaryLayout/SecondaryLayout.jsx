@@ -13,7 +13,7 @@ const SecondaryLayout = () => {
     }
     return (
         <div style={{backgroundImage: 'url(https://tailwindui.com/img/beams-home@95.jpg)', backgroundSize: 'cover', backgroundPosition: 'top'}}>
-            <div className="lg:py-8">
+            <div className="lg:py-8 overflow-hidden">
                 <Header></Header>
             </div>
             <Outlet></Outlet>

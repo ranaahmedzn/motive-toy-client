@@ -31,7 +31,7 @@ const SubscribeSection = () => {
                                 <FaEnvelope className="text-xl text-[#9CA3AF]" />
                             </div>
                             <input type="search" id="search" className="block w-full p-4 pl-12 text-sm text-gray-900 border border-gray-300 rounded-full bg-gray-50 focus:ring-blue-500 focus:outline-none placeholder:text-[#9CA3AF] font-medium" placeholder="Enter your email" required />
-                            <button type="submit" className="text-white absolute right-1.5 top-[5px] bg-[#0787EA] focus:ring-2 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-sm px-6 py-3">Search</button>
+                            <button type="submit" className="text-white absolute right-1.5 top-[5px] bg-[#0787EA] focus:ring-2 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-sm px-6 py-3">Subscribe</button>
                         </div>
                     </form>
                 </div>

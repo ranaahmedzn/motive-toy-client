@@ -43,7 +43,7 @@ const AddAToy = () => {
     }
 
     return (
-        <div className="max-w-7xl mx-auto lg:px-10 my-12">
+        <div className="max-w-7xl mx-auto px-4 lg:px-10 my-12">
             <Helmet>
                 <title>Motive Toy | Add A Toy</title>
             </Helmet>
@@ -57,22 +57,22 @@ const AddAToy = () => {
                     <div className="grid grid-cols-1 gap-6 mt-4 sm:grid-cols-2">
                         <div>
                             <label className="font-medium text-white dark:text-gray-200" htmlFor="username">Toy Name</label>
-                            <input id="toyName" type="text" className="block w-full px-2.5 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md focus:outline-none" required />
+                            <input id="toyName" type="text" className="block w-full px-2.5 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md focus:outline-none" placeholder="Enter toy name" required />
                         </div>
 
                         <div>
                             <label className="font-medium text-white dark:text-gray-200" htmlFor="pictureUrl">Picture URL</label>
-                            <input id="pictureUrl" type="url" className="block w-full px-2.5 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md focus:outline-none" required />
+                            <input id="pictureUrl" type="url" className="block w-full px-2.5 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md focus:outline-none" placeholder="Toy photo url" required />
                         </div>
 
                         <div>
                             <label className="font-medium text-white dark:text-gray-200" htmlFor="sellerName">Seller Name</label>
-                            <input id="sellerName" type="text" className="block w-full px-2.5 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md focus:outline-none" required />
+                            <input id="sellerName" type="text" className="block w-full px-2.5 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md focus:outline-none" placeholder="Enter seller name" required />
                         </div>
 
                         <div>
                             <label className="font-medium text-white dark:text-gray-200" htmlFor="setterEmail">Seller Email</label>
-                            <input id="sellerEmail" type="email" className="block w-full px-2.5 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md focus:outline-none" required />
+                            <input id="sellerEmail" type="email" className="block w-full px-2.5 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md focus:outline-none" placeholder="Enter seller email" required />
                         </div>
                         <div>
                             <label className="font-medium text-white dark:text-gray-200" htmlFor="passwordConfirmation">Sub-category</label>
@@ -84,26 +84,26 @@ const AddAToy = () => {
                         </div>
                         <div>
                             <label className="font-medium text-white dark:text-gray-200" htmlFor="price">Price</label>
-                            <input id="price" type="number" className="block w-full px-2.5 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md focus:outline-none" required />
+                            <input id="price" type="number" className="block w-full px-2.5 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md focus:outline-none" placeholder="Toy price" required />
                         </div>
 
                         <div>
                             <label className="font-medium text-white dark:text-gray-200" htmlFor="quantity">Available Quantity</label>
-                            <input id="quantity" type="number" className="block w-full px-2.5 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md focus:outline-none" required />
+                            <input id="quantity" type="number" className="block w-full px-2.5 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md focus:outline-none" placeholder="Enter quantity" required />
                         </div>
 
                         <div>
                             <label className="font-medium text-white dark:text-gray-200" htmlFor="rating">Rating</label>
-                            <input id="rating" type="text" className="block w-full px-2.5 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md focus:outline-none" required />
+                            <input id="rating" type="text" className="block w-full px-2.5 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md focus:outline-none" placeholder="Enter rating" required />
                         </div>
                         <div>
                             <label className="font-medium text-white dark:text-gray-200" htmlFor="description">Description</label>
-                            <textarea id="description" type="textarea" className="block w-full px-2.5 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md focus:outline-none"></textarea>
+                            <textarea id="description" type="textarea" className="block w-full px-2.5 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md focus:outline-none" placeholder="Describe about your toy..."></textarea>
                         </div>
                     </div>
 
                     <div className="flex justify-end mt-6">
-                        <button type="submit" className="px-6 py-2.5 font-semibold leading-5 text-white transition-colors duration-200 transform bg-pink-500 rounded-md hover:bg-pink-700 focus:outline-none">Add Toy</button>
+                        <button type="submit" className="secondary-btn">Add Toy</button>
                     </div>
                 </form>
             </section>

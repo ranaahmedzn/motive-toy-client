@@ -4,11 +4,13 @@ import MyToyRow from "./MyToyRow";
 import Swal from "sweetalert2";
 import { Helmet } from "react-helmet-async";
 import { FaArrowDown, FaArrowUp, FaRandom } from "react-icons/fa";
+import LoadingPage from "../LoadingPage/LoadingPage";
 
 const MyToys = () => {
     const [toys, setToys] = useState([])
     const [control, setControl] = useState(false)
     const [selectedValue, setSelectedValue] = useState('Sort By Price')
+    const [loading, setLoading] = useState(true)
     const { user } = useContext(AuthContext)
 
     const url = `http://localhost:5000/my-toys?email=${user?.email}&type=${selectedValue}`
@@ -16,7 +18,10 @@ const MyToys = () => {
     useEffect(() => {
         fetch(url)
             .then(res => res.json())
-            .then(data => setToys(data))
+            .then(data => {
+                setToys(data)
+                setLoading(false)
+            })
     }, [url, control])
 
     const handleUpdateToy = (id, updatedToy) => {
@@ -73,6 +78,10 @@ const MyToys = () => {
                     })
             }
         })
+    }
+
+    if(loading){
+        return <LoadingPage />
     }
 
     return (

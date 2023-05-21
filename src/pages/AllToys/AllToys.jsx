@@ -2,15 +2,20 @@ import { useEffect, useState } from "react";
 import ToyRow from "./ToyRow";
 import { FaSearch } from "react-icons/fa";
 import { Helmet } from "react-helmet-async";
+import LoadingPage from "../LoadingPage/LoadingPage";
 
 const AllToys = () => {
     const [toys, setToys] = useState([])
     const [searchText, setSearchText] = useState('')
+    const [loading, setLoading] = useState(true)
 
     useEffect(() => {
         fetch('http://localhost:5000/all-toys')
             .then(res => res.json())
-            .then(data => setToys(data))
+            .then(data => {
+                setToys(data)
+                setLoading(false)
+            })
     }, [])
 
     const handleSearch = (e) => {
@@ -18,9 +23,15 @@ const AllToys = () => {
 
         fetch(`http://localhost:5000/getToys-byText?search=${searchText}`)
             .then(res => res.json())
-            .then(data => setToys(data))
+            .then(data => {
+                setToys(data)
+                setLoading(false)
+            })
     }
 
+    if(loading){
+        return <LoadingPage />
+    }
 
     return (
         <div className="max-w-7xl mx-auto lg:px-10 my-12 overflow-x-auto">

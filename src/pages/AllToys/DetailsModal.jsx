@@ -1,24 +1,16 @@
-import { useEffect, useState } from "react";
 import { FaRegStar, FaStar } from "react-icons/fa";
 import Rating from "react-rating";
-import { useParams } from "react-router-dom";
 
-const ToyDetails = () => {
-    const [toy, setToy] = useState({})
-    const { id } = useParams()
-
-    useEffect(() => {
-        fetch(`http://localhost:5000/toys/toy/${id}`)
-            .then(res => res.json())
-            .then(data => setToy(data))
-    }, [id])
-
-    console.log(toy)
+const DetailsModal = ({sl, toy}) => {
     const { toy_name, picture, description, price, rating, available_quantity } = toy || {}
 
     return (
-        <div className="max-w-7xl mx-auto px-10 flex justify-center items-center pt-12 pb-20">
-            <div className="w-full md:w-1/2 p-4">
+        <>
+            <input type="checkbox" id={`my-modal-${sl + 1}`} className="modal-toggle" />
+            <div className='modal'>
+                <div className="modal-box relative w-11/12">
+                    <label htmlFor={`my-modal-${sl + 1}`} className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
+                    <div className="w-full p-4">
                 <div className="c-card block bg-white shadow-md hover:shadow-xl rounded-lg overflow-hidden">
                     <div className="relative pb-48 w-full h-[300px] overflow-hidden">
                         <img className="absolute inset-0 h-full w-full object-cover" src={picture} alt="" />
@@ -51,9 +43,10 @@ const ToyDetails = () => {
                     </div>
                 </div>
             </div>
-
-        </div>
+                </div>
+            </div>
+        </>
     );
 };
 
-export default ToyDetails;
+export default DetailsModal;

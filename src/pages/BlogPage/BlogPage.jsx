@@ -19,12 +19,12 @@ const BlogPage = () => {
             <Helmet>
                 <title>Motive Toy | Blog</title>
             </Helmet>
-            <div className="lg:py-8">
+            <div className="lg:py-8 overflow-hidden">
                 <Header></Header>
             </div>
-            <div className="max-w-7xl mx-auto px-10 grid grid-cols-1 lg:grid-cols-3 mb-10">
+            <div className="max-w-7xl mx-auto py-10 lg:py-0 px-4 lg:px-10 grid lg:gap-6 grid-cols-1 lg:grid-cols-3 mb-10">
                 {/* blogs section  */}
-                <section className="col-span-2 w-full flex flex-col items-center px-3">
+                <section className="col-span-2 mb-6 w-full flex flex-col items-center">
                     <article className="p-6 flex flex-col my-4 border shadow rounded-lg overflow-hidden">
                         {/* <!-- Article Image --> */}
 
@@ -37,10 +37,10 @@ const BlogPage = () => {
                                 </div>
                             </div>
                             <div className="flex gap-2">
-                                <span className="bg-[#f0f0f0] p-2 rounded-full text-xl">
+                                <span className="bg-[#f0f0f0] cursor-pointer p-2 rounded-full text-xl">
                                     <HiThumbUp />
                                 </span>
-                                <span className="bg-[#f0f0f0] p-2 rounded-full">
+                                <span className="bg-[#f0f0f0] cursor-pointer p-2 rounded-full">
                                     <BsFillPinAngleFill/>
                                 </span>
                             </div>
@@ -70,10 +70,10 @@ const BlogPage = () => {
                                 </div>
                             </div>
                             <div className="flex gap-2">
-                                <span className="bg-[#f0f0f0] p-2 rounded-full text-xl">
+                                <span className="bg-[#f0f0f0] cursor-pointer p-2 rounded-full text-xl">
                                     <HiThumbUp />
                                 </span>
-                                <span className="bg-[#f0f0f0] p-2 rounded-full">
+                                <span className="bg-[#f0f0f0] cursor-pointer p-2 rounded-full">
                                     <BsFillPinAngleFill/>
                                 </span>
                             </div>
@@ -100,10 +100,10 @@ const BlogPage = () => {
                                 </div>
                             </div>
                             <div className="flex gap-2">
-                                <span className="bg-[#f0f0f0] p-2 rounded-full text-xl">
+                                <span className="bg-[#f0f0f0] cursor-pointer p-2 rounded-full text-xl">
                                     <HiThumbUp />
                                 </span>
-                                <span className="bg-[#f0f0f0] p-2 rounded-full">
+                                <span className="bg-[#f0f0f0] cursor-pointer p-2 rounded-full">
                                     <BsFillPinAngleFill/>
                                 </span>
                             </div>
@@ -131,10 +131,10 @@ const BlogPage = () => {
                                 </div>
                             </div>
                             <div className="flex gap-2">
-                                <span className="bg-[#f0f0f0] p-2 rounded-full text-xl">
+                                <span className="bg-[#f0f0f0] cursor-pointer p-2 rounded-full text-xl">
                                     <HiThumbUp />
                                 </span>
-                                <span className="bg-[#f0f0f0] p-2 rounded-full">
+                                <span className="bg-[#f0f0f0] cursor-pointer p-2 rounded-full">
                                     <BsFillPinAngleFill/>
                                 </span>
                             </div>
@@ -153,7 +153,7 @@ const BlogPage = () => {
                 </section>
 
                 {/* <!-- Sidebar Section --> */}
-                <div className="w-full flex flex-col items-center px-3 sticky top-0 z-50">
+                <div className="w-full flex flex-col items-center sticky top-0 z-50">
                     <div className="w-full bg-white  flex flex-col my-4 p-6 border rounded-lg">
                         <p className="text-xl font-semibold pb-5">More Blogs</p>
                         <div className="grid grid-cols-3 gap-3">
