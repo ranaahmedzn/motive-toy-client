@@ -1,10 +1,13 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Helmet } from "react-helmet-async";
 import Swal from "sweetalert2";
+import { AuthContext } from "../../providers/AuthProvider";
 
 const AddAToy = () => {
-    const [subCategory, setSubCategory] = useState('')
+    const [subCategory, setSubCategory] = useState('Indoor')
     // console.log(selectedValue)
+    const {user} = useContext(AuthContext)
+    console.log(user)
 
     const handleAddToy = (event) => {
         event.preventDefault()
@@ -67,12 +70,12 @@ const AddAToy = () => {
 
                         <div>
                             <label className="font-medium text-white dark:text-gray-200" htmlFor="sellerName">Seller Name</label>
-                            <input id="sellerName" type="text" className="block w-full px-2.5 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md focus:outline-none" placeholder="Enter seller name" required />
+                            <input id="sellerName" type="text" className="block w-full px-2.5 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md focus:outline-none" defaultValue={user?.displayName} placeholder="Enter seller name" required />
                         </div>
 
                         <div>
                             <label className="font-medium text-white dark:text-gray-200" htmlFor="setterEmail">Seller Email</label>
-                            <input id="sellerEmail" type="email" className="block w-full px-2.5 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md focus:outline-none" placeholder="Enter seller email" required />
+                            <input id="sellerEmail" type="email" className="block w-full px-2.5 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md focus:outline-none" value={user?.email} placeholder="Enter seller email" required />
                         </div>
                         <div>
                             <label className="font-medium text-white dark:text-gray-200" htmlFor="passwordConfirmation">Sub-category</label>

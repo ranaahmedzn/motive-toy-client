@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 
 const AboutSection = () => {
     return (
@@ -17,7 +18,7 @@ const AboutSection = () => {
                 <p className="text-gray-600 mb-5">
                     At Motive Toy, we believe in the transformative power of play. Our carefully curated collection of sports toys offers a world of exciting possibilities, from basketball hoops to soccer sets and more. Let Motive Toy be your companion in unleashing the joy of play.
                 </p>
-                <button className="primary-btn">Add Toy</button>
+                <Link to='/toys/add-toy'><button className="primary-btn">Add A Toy</button></Link>
             </div>
         </div>
     );

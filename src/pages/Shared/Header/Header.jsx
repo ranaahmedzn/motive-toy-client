@@ -57,7 +57,7 @@ const Header = () => {
 
             {/* sidebar */}
             <div className={`md:hidden w-3/4 h-screen fixed z-50 transition-all duration-500 ${open ? 'top-0 left-0' : 'top-0 -left-full'}`}>
-                <ul className="p-4 pr-10 pt-10 bg-base-300 space-y-8 h-full relative">
+                <ul className="p-4 pr-10 pt-10 bg-white space-y-8 h-full relative">
                     <MenuItems></MenuItems>
                     {
                         user && <li><button onClick={handleSignOut} className="primary-btn">Sign Out</button></li>
