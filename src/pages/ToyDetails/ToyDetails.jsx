@@ -8,7 +8,7 @@ const ToyDetails = () => {
     const { id } = useParams()
 
     useEffect(() => {
-        fetch(`https://motive-toy-server.vercel.app/toys/toy/${id}`)
+        fetch(`https://motive-toy-server.up.railway.app/toys/toy/${id}`)
             .then(res => res.json())
             .then(data => setToy(data))
     }, [id])

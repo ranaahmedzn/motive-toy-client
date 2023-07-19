@@ -6,7 +6,7 @@ const ShopByCategory = () => {
     const [toys, setToys] = useState([])
 
     useEffect(() => {
-        fetch(`https://motive-toy-server.vercel.app/toys-by-category?category=${activeTab}`)
+        fetch(`https://motive-toy-server.up.railway.app/toys-by-category?category=${activeTab}`)
             .then(res => res.json())
             .then(data => setToys(data))
     }, [activeTab])

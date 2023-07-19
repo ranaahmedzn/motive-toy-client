@@ -6,7 +6,7 @@ import { AuthContext } from "../../providers/AuthProvider";
 const AddAToy = () => {
     const [subCategory, setSubCategory] = useState('Indoor')
     // console.log(selectedValue)
-    const {user} = useContext(AuthContext)
+    const { user } = useContext(AuthContext)
     console.log(user)
 
     const handleAddToy = (event) => {
@@ -22,10 +22,10 @@ const AddAToy = () => {
         const rating = form.rating.value;
         const description = form.description.value;
 
-        const newToy = { toyName, pictureUrl, sellerName, sellerEmail, subCategory, price, availableQuantity, rating, description }
-        // console.log(newToy)
+        const newToy = { toyName, pictureUrl, sellerName, sellerEmail, subCategory, price: parseFloat(price), availableQuantity, rating, description }
+        // console.log(newToy);'?
 
-        fetch('https://motive-toy-server.vercel.app/toys/add-toy', {
+        fetch('https://motive-toy-server.up.railway.app/toys/add-toy', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -70,7 +70,7 @@ const AddAToy = () => {
 
                         <div>
                             <label className="font-medium text-white dark:text-gray-200" htmlFor="sellerName">Seller Name</label>
-                            <input id="sellerName" type="text" className="block w-full px-2.5 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md focus:outline-none" defaultValue={user?.displayName} placeholder="Enter seller name" required />
+                            <input id="sellerName" type="text" className="block w-full px-2.5 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md focus:outline-none" value={user?.displayName} placeholder="Enter seller name" required />
                         </div>
 
                         <div>

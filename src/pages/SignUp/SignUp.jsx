@@ -64,14 +64,14 @@ const SignUp = () => {
     }
 
     return (
-        <div className='bg-[#0787EA] pt-8 pb-16'>
+        <div className='bg-[#0787EA] pt-16 md:pt-8 pb-16 px-4'>
             <Helmet>
                 <title>Motive Toy | Sign Up</title>
             </Helmet>
             <div className='max-w-7xl mx-auto flex items-center justify-center'>
-                <div className="w-3/4 h-full box-border mx-auto flex rounded-lg overflow-hidden border">
-                    <img src={image} alt="" className='w-2/5' />
-                    <div className='w-3/5 p-16 bg-white'>
+                <div className="w-full md:w-3/4 h-full box-border mx-auto flex rounded-lg overflow-hidden border">
+                    <img src={image} alt="" className='hidden md:block w-full md:w-2/5' />
+                    <div className='w-full md:w-3/5 p-6 md:p-16 bg-white'>
                         <h3 className='font-bold text-2xl text-[#333E48] mb-5'>Create your account</h3>
                         <form onSubmit={handleSignUp}>
                             <div className='flex gap-3 mb-5'>

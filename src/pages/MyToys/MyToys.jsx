@@ -13,7 +13,7 @@ const MyToys = () => {
     const [loading, setLoading] = useState(true)
     const { user } = useContext(AuthContext)
 
-    const url = `https://motive-toy-server.vercel.app/my-toys?email=${user?.email}&type=${selectedValue}`
+    const url = `https://motive-toy-server.up.railway.app/my-toys?email=${user?.email}&type=${selectedValue}`
 
     useEffect(() => {
         fetch(url)
@@ -25,7 +25,7 @@ const MyToys = () => {
     }, [url, control])
 
     const handleUpdateToy = (id, updatedToy) => {
-        fetch(`https://motive-toy-server.vercel.app/toys/update-toy/${id}`, {
+        fetch(`https://motive-toy-server.up.railway.app/toys/update-toy/${id}`, {
             method: 'PATCH',
             headers: {
                 'content-type': 'application/json'
@@ -59,7 +59,7 @@ const MyToys = () => {
             confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`https://motive-toy-server.vercel.app/toys/delete-toy/${id}`, {
+                fetch(`https://motive-toy-server.up.railway.app/toys/delete-toy/${id}`, {
                     method: 'DELETE',
                 })
                     .then(res => res.json())
@@ -85,7 +85,7 @@ const MyToys = () => {
     }
 
     return (
-        <div className="max-w-7xl mx-auto lg:px-10 mt-12 mb-20">
+        <div className="max-w-7xl mx-auto px-4 lg:px-10 mt-12 mb-20">
             <Helmet>
                 <title>Motive Toy | My Toys</title>
             </Helmet>
