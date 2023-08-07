@@ -7,7 +7,6 @@ const AddAToy = () => {
     const [subCategory, setSubCategory] = useState('Indoor')
     // console.log(selectedValue)
     const { user } = useContext(AuthContext)
-    console.log(user)
 
     const handleAddToy = (event) => {
         event.preventDefault()
@@ -25,7 +24,7 @@ const AddAToy = () => {
         const newToy = { toyName, pictureUrl, sellerName, sellerEmail, subCategory, price: parseFloat(price), availableQuantity, rating, description }
         // console.log(newToy);'?
 
-        fetch('https://motive-toy-server.up.railway.app/toys/add-toy', {
+        fetch('https://motive-toy-server.vercel.app/toys/add-toy', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -34,7 +33,7 @@ const AddAToy = () => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data)
+                // console.log(data)
                 if (data.insertedId) {
                     Swal.fire(
                         'Added',

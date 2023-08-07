@@ -8,12 +8,11 @@ const ToyDetails = () => {
     const { id } = useParams()
 
     useEffect(() => {
-        fetch(`https://motive-toy-server.up.railway.app/toys/toy/${id}`)
+        fetch(`https://motive-toy-server.vercel.app/toys/toy/${id}`)
             .then(res => res.json())
             .then(data => setToy(data))
     }, [id])
 
-    console.log(toy)
     const { toyName, pictureUrl, description, price, rating, availableQuantity } = toy || {}
 
     return (
@@ -46,7 +45,7 @@ const ToyDetails = () => {
                                 <span className="inline-block px-2 py-1 leading-none bg-orange-200 text-orange-800 rounded-full font-bold uppercase tracking-wide text-xs">{rating}</span>
                             </div>
 
-                            <button className="primary-btn">Buy Now</button>
+                            <button className="primary-btn" title="This feature currently unavailable!">Buy Now</button>
                         </div>
                     </div>
                 </div>

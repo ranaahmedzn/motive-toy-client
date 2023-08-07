@@ -1,0 +1,43 @@
+[
+    {
+      "id": 1,
+      "customerImg": "https://i.ibb.co/N2jjNbF/teacher7.jpg",
+      "customerName": "Sarah Johnson",
+      "customerDesignation": "Soccer Coach",
+      "feedbackTitle": "Fantastic Selection",
+      "feedbackMessage": "I am truly impressed with the wide range of soccer balls and training equipment available on this website. As a soccer coach, it's crucial for me to provide my team with the best tools to enhance their skills, and these top-notch products have certainly delivered. The attention to detail and quality craftsmanship are evident in every item. My team's performance has noticeably improved since incorporating these sports toys into our training sessions. Thank you for offering such a fantastic selection!"
+    },
+    {
+      "id": 2,
+      "customerImg": "https://i.ibb.co/BNbQ5Pj/teacher1.jpg",
+      "customerName": "Jason Lee",
+      "customerDesignation": "Parent",
+      "feedbackTitle": "Exceptional Service",
+      "feedbackMessage": "I wanted to express my gratitude for the exceptional customer service provided by this website. As a parent, finding the right sports toys for my kids can be a challenge, but your quick responses and hassle-free returns have made the entire process seamless. My kids are absolutely thrilled with their new basketball hoop, and I couldn't be happier with my shopping experience. The dedication to customer satisfaction is truly commendable. Thank you for going above and beyond!"
+    },
+    {
+      "id": 3,
+      "customerImg": "https://i.ibb.co/QHfKVfL/profile2.jpg",
+      "customerName": "Alex Patel",
+      "customerDesignation": "Fitness Enthusiast",
+      "feedbackTitle": "Quality Gear",
+      "feedbackMessage": "I've been on the lookout for high-quality fitness toys to elevate my home workouts, and I'm delighted to say that I've found exactly what I was looking for on this website. The resistance bands and yoga mats I purchased are not only durable and well-crafted but have also added a new dimension to my fitness routine. The attention to detail and commitment to quality are evident in every product. I'm excited to continue my fitness journey with these top-notch gear. I'll definitely be recommending this site to fellow fitness enthusiasts!"
+    },
+    {
+      "id": 4,
+      "customerImg": "https://i.ibb.co/DtcD4CK/profile3.jpg",
+      "customerName": "Emily Clark",
+      "customerDesignation": "Tennis Player",
+      "feedbackTitle": "Fast Shipping",
+      "feedbackMessage": "I wanted to take a moment to acknowledge the impressive efficiency of your shipping process. I recently ordered a tennis racket from your website, and I was pleasantly surprised by how quickly it arrived. The careful packaging ensured that the racket reached me in perfect condition. As a dedicated tennis player, having reliable equipment is crucial to my game, and your fast shipping has exceeded my expectations. Kudos to your team for a job well done!"
+    },
+    {
+      "id": 5,
+      "customerImg": "https://i.ibb.co/n1NkP7p/profile1.jpg",
+      "customerName": "Michael Garcia",
+      "customerDesignation": "Sports Collector",
+      "feedbackTitle": "Unique Finds",
+      "feedbackMessage": "As a passionate sports collector, I've scoured various sources for rare and unique memorabilia, and I must say that your website is an absolute gem. The collection of collector's items and memorabilia is truly unparalleled. I was thrilled to discover items that I couldn't find anywhere else. The attention to detail and authenticity of the products are evident, and I couldn't be happier with my finds. Thank you for providing a haven for sports enthusiasts like me to uncover hidden treasures!"
+    }
+  ]
+  

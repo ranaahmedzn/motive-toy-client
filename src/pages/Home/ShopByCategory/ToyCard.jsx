@@ -7,25 +7,26 @@ import { toast } from "react-hot-toast";
 
 const ToyCard = ({ toy }) => {
     const {user} = useContext(AuthContext)
-    const { _id, toyName, pictureUrl, price, rating } = toy || {};
+    const { _id, toyName, pictureUrl, price, rating, subCategory } = toy || {};
 
     const handleNotify = () => {
         if(!user){
-            return toast('You have to log in first to view details!', {
+            return toast('Please log in, in order to view details!', {
                 icon: 'ℹ️',
             })
         }
     }
 
     return (
-        <div className="card w-full shadow-lg bg-gradient-to-r from-blue-50 to-cyan-50 border">
+        <div data-aos="fade-up" data-aos-duration="2000" data-aos-once="true" className="card w-full shadow-xl border border-gray-200">
             <figure className="px-5 pt-5">
-                <img src={pictureUrl} alt="Shoes" className="rounded-xl" />
+                <img width="200" src={pictureUrl} alt="Shoes" className="rounded-xl" />
             </figure>
-            <div className="p-5 space-y-4">
+            <div className="p-5">
                 <h2 className="font-bold text-2xl text-[#333E48]">{toyName}</h2>
-                <div className="flex justify-between items-center">
-                        <p className="font-bold text-4xl text-rose-500">${price}</p>
+                <h2 className="font-medium mt-1 mb-3 text-[#333E48]">{subCategory}</h2>
+                <div className="flex justify-between items-center  mb-5">
+                    <p className="font-bold text-2xl text-[#333E48]">Price: <span className="text-rose-500">${price}</span></p>
                     <div>
                         <Rating className="text-yellow-400"
                             readonly

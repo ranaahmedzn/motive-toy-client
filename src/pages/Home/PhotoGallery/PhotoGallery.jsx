@@ -6,7 +6,7 @@ const PhotoGallery = () => {
     return (
         <div className="max-w-7xl h-full px-4 lg:px-10 mx-auto mt-8 py-10">
             <div className="text-center mb-8 w-full lg:w-1/2 mx-auto space-y-4">
-                <h3 className="font-bold text-3xl text-[#333E48]">Latest Toy Images</h3>
+                <h3 className="font-bold text-3xl text-[#333E48]">Explore Our Latest Toys</h3>
                 <p className="text-gray-600">Embark on an Imaginative Journey, Witness the Thrill of Sports Toys through a Gallery of Dynamic and Inspiring Images.</p>
             </div>
 

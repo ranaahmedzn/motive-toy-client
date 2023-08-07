@@ -15,7 +15,7 @@ const Header = () => {
     const handleSignOut = () => {
         signOutUser()
             .then(() => toast.success('Sign out successful!👍'))
-            .then(err => console.log(err))
+            .then(err => { })
     }
 
     return (
@@ -44,13 +44,19 @@ const Header = () => {
                     {/* todo */}
                     {
                         user ?
-                        <div className="flex gap-2.5 items-center">
-                            <div className="tooltip tooltip-bottom" data-tip={user?.displayName}>
-                                <img src={user?.photoURL} alt="" className="rounded-full w-10 border border-[#333E48] hover:cursor-text" />
+                            <div className="flex gap-2.5 items-center">
+                                <div className="tooltip tooltip-bottom" data-tip={user?.displayName}>
+                                    <img src={user?.photoURL} alt="" className="rounded-full w-10 border border-[#333E48] hover:cursor-text" />
+                                </div>
+                                <button onClick={handleSignOut} className="hidden md:block relative rounded px-5 py-2.5 overflow-hidden group bg-[#0787EA] hover:bg-gradient-to-r hover:from-[#0787EA] hover:to-[#0762ea] hover:shadow-lg text-white font-bold transition-all ease-out duration-300">
+                                    <span className="absolute right-0 w-8 h-32 -mt-12 transition-all duration-1000 transform translate-x-12 bg-white opacity-20 rotate-12 group-hover:-translate-x-40 ease"></span>
+                                    <span className="relative">Sign Out</span>
+                                </button>
                             </div>
-                            <button onClick={handleSignOut} className="primary-btn hidden md:block">Sign Out</button>
-                        </div>
-                        : <Link to='/login'><button className="primary-btn">Login</button></Link>
+                            : <Link to='/login'><button className="relative rounded px-5 py-2.5 overflow-hidden group bg-[#0787EA] hover:bg-gradient-to-r hover:from-[#0787EA] hover:to-[#0762ea] hover:shadow-lg text-white font-bold transition-all ease-out duration-300">
+                                <span className="absolute right-0 w-8 h-32 -mt-12 transition-all duration-1000 transform translate-x-12 bg-white opacity-20 rotate-12 group-hover:-translate-x-40 ease"></span>
+                                <span className="relative">Login</span>
+                            </button></Link>
                     }
                 </div>
             </div>

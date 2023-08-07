@@ -30,7 +30,7 @@ const Login = () => {
         signInUser(email, password)
             .then(result => {
                 const user = result.user;
-                console.log(user)
+                // console.log(user)
                 form.reset()
                 toast.success("Login successful!👍")
                 navigate(from, {replace: true})
@@ -42,7 +42,7 @@ const Login = () => {
         googleLogin()
             .then(result => {
                 const user = result.user;
-                console.log(user)
+                // console.log(user)
                 toast.success("Successfully login with Google!👍")
                 navigate(from, {replace: true})
             })
@@ -53,7 +53,7 @@ const Login = () => {
         twitterLogin()
             .then(result => {
                 const user = result.user;
-                console.log(user)
+                // console.log(user)
                 toast.success("Successfully login with Twitter!👍")
                 navigate(from, {replace: true})
             })

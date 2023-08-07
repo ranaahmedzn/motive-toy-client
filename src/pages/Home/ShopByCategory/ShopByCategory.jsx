@@ -1,14 +1,20 @@
 import { useEffect, useState } from "react";
 import ToyCard from "./ToyCard";
+import { ProgressBar } from "react-loader-spinner";
 
 const ShopByCategory = () => {
     const [activeTab, setActiveTab] = useState('All')
     const [toys, setToys] = useState([])
+    const [loading, setLoading] = useState(true)
 
     useEffect(() => {
-        fetch(`https://motive-toy-server.up.railway.app/toys-by-category?category=${activeTab}`)
+        setLoading(true)
+        fetch(`https://motive-toy-server.vercel.app/toys-by-category?category=${activeTab}`)
             .then(res => res.json())
-            .then(data => setToys(data))
+            .then(data => {
+                setLoading(false)
+                setToys(data)
+            })
     }, [activeTab])
 
     const handleTabClick = (tab) => {
@@ -23,7 +29,7 @@ const ShopByCategory = () => {
                     Ignite Your Passion for Active Play and Unleash the Fun!</p>
             </div>
 
-            <ul className="w-full lg:w-3/4 mx-auto my-8 grid grid-cols-4 border-2 border-[#0787EA] rounded-lg">
+            <ul className="w-full lg:w-3/4 mx-auto mt-8 mb-10 grid grid-cols-4 border-2 border-[#0787EA] rounded-lg">
                 <li onClick={() => handleTabClick('All')} className={`${activeTab === 'All' ? 'active-tab' : 'default-tab'}`}>All</li>
 
                 <li onClick={() => handleTabClick('Indoor')} className={`${activeTab === 'Indoor' ? 'active-tab' : 'default-tab'} border-l-2 border-r-2 border-[#0787EA]`}>Indoor</li>
@@ -33,14 +39,27 @@ const ShopByCategory = () => {
                 <li onClick={() => handleTabClick('Miniature')} className={`${activeTab === 'Miniature' ? 'active-tab' : 'default-tab'}`}>Miniature</li>
             </ul>
 
-            <div className="grid gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-                {
-                    toys.map(toy => <ToyCard
-                        key={toy._id}
-                        toy={toy}
-                    ></ToyCard>)
-                }
-            </div>
+            {
+                loading ? <div className="w-full py-32 bg-white flex justify-center items-center">
+                    <ProgressBar
+                        height="80"
+                        width="80"
+                        ariaLabel="progress-bar-loading"
+                        wrapperStyle={{}}
+                        wrapperClass="progress-bar-wrapper"
+                        borderColor='#333E48'
+                        barColor='#0787EA'
+                    />
+                </div>
+                    : <div className="grid gap-10 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+                        {
+                            toys.map(toy => <ToyCard
+                                key={toy._id}
+                                toy={toy}
+                            ></ToyCard>)
+                        }
+                    </div>
+            }
         </div>
     );
 };

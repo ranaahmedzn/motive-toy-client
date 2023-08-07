@@ -38,7 +38,7 @@ const DetailsModal = ({ sl, toy }) => {
                                         <span className="inline-block px-2 py-1 leading-none bg-orange-200 text-orange-800 rounded-full font-bold uppercase tracking-wide text-xs">{rating}</span>
                                     </div>
 
-                                    <button className="primary-btn">Buy Now</button>
+                                    <button className="primary-btn" title="This feature currently unavailable!">Buy Now</button>
                                 </div>
                             </div>
                         </div>
