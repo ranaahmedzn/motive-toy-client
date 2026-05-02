@@ -1,9 +1,9 @@
 import { Link } from 'react-router-dom';
-import image from '../../../assets/images/image2.png'
+import image from '../../../assets/images/banner-image.png'
 
 const Banner = () => {
     return (
-        <div className="w-full h-[calc(100vh-90px)] lg:h-[calc(100vh-154px)] overflow-hidden bg-[#0787EA]">
+        <div className="w-full h-[calc(100vh-90px)] lg:h-[calc(911px-154px)] overflow-hidden bg-[#0787EA]">
             <div className="w-full max-w-7xl h-full px-4 lg:px-10 mx-auto flex flex-col lg:flex-row justify-center items-center">
                 <div
                 data-aos="fade-right"
@@ -21,7 +21,7 @@ const Banner = () => {
                         data-aos-delay="50"
                         data-aos-duration="1500"
                         data-aos-easing="linear"
-                        src={image} alt="" className='w-[600px] ml-auto' />
+                        src={image} alt="" className='w-[450px] ml-auto rounded-full ring-4 ring-white/70' />
                 </div>
             </div>
         </div>
